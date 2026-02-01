@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import logging
 from dataclasses import dataclass
 from pathlib import Path
@@ -7,7 +8,7 @@ from typing import Dict, Optional
 
 from pydantic import BaseModel
 
-from src.engine.decision import ActionType
+from src.engine.decision import ActionType, CoordinatorDecision
 from src.engine.types import WorkflowStage
 from src.memory.models import AgentState
 from src.memory.state_manager import advance_to_next_chapter, update_state_from_tool
@@ -163,6 +164,7 @@ class Agent:
         for step in range(self._config.iteration_step_limit):
             steps_executed = step + 1
             decision = self._coordinator.next_action(state)
+            self._log_decision(decision, state)
 
             # Log progress for chapter processing
             if state.workflow.current_stage == WorkflowStage.ANALYZE_CHAPTER:
@@ -179,15 +181,15 @@ class Agent:
                 break
 
             if decision.action_type == ActionType.LLM_SKILL and decision.skill:
-                self._logger.debug(f"Invoking LLM skill: {decision.skill.value}")
                 context = self._build_prompt_context(state)
+                self._log_llm_request(decision.skill, context)
                 output = self._llm_call(decision.skill, context)
-                self._logger.debug(f"LLM Skill Output received")
+                self._log_llm_response(decision.skill, output)
                 state = update_state_from_skill(state, decision.skill, output)
                 continue
 
             if decision.action_type == ActionType.TOOL and decision.tool_type:
-                self._logger.debug(f"Executing tool: {decision.tool_type.value}")
+                self._logger.info(f"Executing tool: {decision.tool_type.value}")
 
                 if (
                     state.workflow.current_stage == WorkflowStage.CHECK_COMPLETION
@@ -196,7 +198,9 @@ class Agent:
                     state = advance_to_next_chapter(state)
 
                 output = self._execute_tool(state, decision.tool_type)
-                self._logger.debug(f"Tool execution complete")
+                self._logger.info(
+                    f"Tool execution complete: {decision.tool_type.value}"
+                )
                 state = update_state_from_tool(state, decision.tool_type, output)
 
                 # Capture report path if report was generated
@@ -244,6 +248,59 @@ class Agent:
             "events": state.semantic.event_chronicle,
         }
 
+    def _log_decision(self, decision: CoordinatorDecision, state: AgentState) -> None:
+        self._logger.info(
+            "Coordinator decision: "
+            f"stage={state.workflow.current_stage.value}, "
+            f"action={decision.action_type.value}, "
+            f"skill={decision.skill.value if decision.skill else 'n/a'}, "
+            f"tool={decision.tool_type.value if decision.tool_type else 'n/a'}, "
+            f"reason={decision.reason}",
+        )
+
+    def _context_summary(self, context: Dict[str, object]) -> Dict[str, object]:
+        text = context.get("current_chapter_text") or ""
+        return {
+            "stage": context["workflow"].current_stage.value,
+            "chapter_index": context["working"].current_chapter_index,
+            "chapter_title": context["working"].current_chapter_title,
+            "chapter_text_length": len(text),
+            "characters_tracked": len(context.get("characters", [])),
+        }
+
+    def _log_llm_request(
+        self, skill_name: SkillName, context: Dict[str, object]
+    ) -> None:
+        summary = self._context_summary(context)
+        self._logger.info(
+            f"LLM request {skill_name.value}: {json.dumps(summary, ensure_ascii=False)}"
+        )
+
+    def _log_llm_response(self, skill_name: SkillName, output: BaseModel) -> None:
+        self._logger.info(
+            f"LLM response {skill_name.value}: {self._format_payload(output)}"
+        )
+
+    def _log_tool_request(self, tool_type: ToolName, request: object) -> None:
+        self._logger.info(
+            f"Tool request {tool_type.value}: {self._format_payload(request)}"
+        )
+
+    def _log_tool_response(self, tool_type: ToolName, response: BaseModel) -> None:
+        self._logger.info(
+            f"Tool response {tool_type.value}: {self._format_payload(response)}"
+        )
+
+    def _format_payload(self, payload: object) -> str:
+        if isinstance(payload, BaseModel):
+            data = payload.model_dump(exclude_none=True)
+        else:
+            data = payload
+        try:
+            return json.dumps(data, default=str, ensure_ascii=False)
+        except TypeError:
+            return str(data)
+
     def _llm_call(self, skill_name: SkillName, context: Dict[str, object]) -> BaseModel:
         """Execute an LLM skill and return the structured output."""
         try:
@@ -257,13 +314,19 @@ class Agent:
         """Execute a tool and return its result."""
         if tool_type == ToolName.HELLO_WORLD:
             request_payload = state.get_hello_world_request()
-            return self._hello_world_client.call(request_payload)
+            self._log_tool_request(tool_type, request_payload)
+            response = self._hello_world_client.call(request_payload)
+            self._log_tool_response(tool_type, response)
+            return response
 
         elif tool_type == ToolName.CHAPTER_SEGMENTATION:
             request = ChapterSegmentationRequest(
                 file_path=state.working.source_file_path,
             )
-            return self._segmentation_tool.segment(request)
+            self._log_tool_request(tool_type, request)
+            response = self._segmentation_tool.segment(request)
+            self._log_tool_response(tool_type, response)
+            return response
 
         elif tool_type == ToolName.CHAPTER_EXTRACTION:
             # Convert ChapterMetadata to ChapterSegmentationMetadata for the request
@@ -273,6 +336,9 @@ class Agent:
                 ChapterSegmentationMetadata(
                     index=cm.index,
                     title=cm.title,
+                    book_index=cm.book_index,
+                    book_title=cm.book_title,
+                    chapter_number=cm.chapter_number,
                     start_line=cm.start_line,
                     end_line=cm.end_line,
                     line_count=cm.line_count,
@@ -285,7 +351,10 @@ class Agent:
                 chapter_index=state.working.current_chapter_index,
                 chapter_map=chapter_map,
             )
-            return self._extraction_tool.extract(request)
+            self._log_tool_request(tool_type, request)
+            response = self._extraction_tool.extract(request)
+            self._log_tool_response(tool_type, response)
+            return response
 
         elif tool_type == ToolName.HTML_REPORT_GENERATION:
             request = HTMLReportRequest(
@@ -293,7 +362,10 @@ class Agent:
                 report_title=self._config.report_title,
                 book_title=state.working.book_title,
             )
-            return self._report_generator.generate(request, state)
+            self._log_tool_request(tool_type, request)
+            response = self._report_generator.generate(request, state)
+            self._log_tool_response(tool_type, response)
+            return response
 
         else:
             raise RuntimeError(f"Unknown tool type requested: {tool_type}")

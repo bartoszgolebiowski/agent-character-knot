@@ -45,7 +45,7 @@ class LLMConfig:
 
     @classmethod
     def model_default(cls) -> str:
-        return "arcee-ai/trinity-mini:free"
+        return "google/gemini-3-flash-preview"
 
     @classmethod
     def temperature_default(cls) -> float:
