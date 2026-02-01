@@ -3,7 +3,8 @@
 This document outlines the phased implementation strategy for the StoryGraph AI Agent, adhering strictly to the deterministic, state-driven architecture.
 
 ## Phase 1: Foundation & Memory (Infrastructure)
-*Fundamental data structures and state management logic.*
+
+_Fundamental data structures and state management logic._
 
 1.  **[FR-09] Structured Relationship History (Pydantic)**
     - Define all schemas in `src/memory/models.py` and `src/skills/models.py`.
@@ -17,7 +18,8 @@ This document outlines the phased implementation strategy for the StoryGraph AI 
     - Implement the loop logic in `src/engine/coordinator.py`.
 
 ## Phase 2: Data Ingestion (Deterministic Tools)
-*Tools to handle high-volume text and structural parsing.*
+
+_Tools to handle high-volume text and structural parsing._
 
 4.  **[FR-02] Intelligent Segmentation**
     - Create `ChapterSegmentationTool` in `src/tools/`.
@@ -27,7 +29,8 @@ This document outlines the phased implementation strategy for the StoryGraph AI 
     - Implement progress logging in `src/agent.py`.
 
 ## Phase 3: Core Intelligence (LLM Skills)
-*AI capabilities for entity and relationship extraction.*
+
+_AI capabilities for entity and relationship extraction._
 
 6.  **[FR-04] Entity Resolution**
     - Define `entity_resolution.j2` template.
@@ -43,7 +46,8 @@ This document outlines the phased implementation strategy for the StoryGraph AI 
     - Create the batch scoring skill to run after all chapters are processed.
 
 ## Phase 4: Presentation (Reporting)
-*Deterministic tools for final output.*
+
+_Deterministic tools for final output._
 
 10. **[FR-10] & [FR-11] Multi-Page HTML Report & Hyperlinking**
     - Implement `HTMLReportGeneratorTool` using Jinja2.
@@ -55,7 +59,7 @@ This document outlines the phased implementation strategy for the StoryGraph AI 
 ## Critical Rules for Implementation
 
 1.  **State Management**: NEVER mutate `AgentState` directly. Always use `deepcopy` in `state_manager.py`.
-2.  **Logic Placement**: 
+2.  **Logic Placement**:
     - Routing logic -> `workflow_transitions.py`.
     - Side effects/Execution -> `agent.py`.
     - LLM Prompting -> `src/prompting/jinja/`.
@@ -63,4 +67,5 @@ This document outlines the phased implementation strategy for the StoryGraph AI 
 4.  **Validation**: Use `pydantic.BaseModel` for all data structures to ensure automatic validation.
 
 ## Next Steps
+
 1. Start with **Phase 1, Step 1 ([FR-09])**: Defining the Pydantic models in `src/memory/models.py`.
