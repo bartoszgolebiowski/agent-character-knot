@@ -594,9 +594,7 @@ def _find_interaction_by_id(
     return None
 
 
-def _merge_character_dossier(
-    state: AgentState, char_id: str, dossier_update
-) -> None:
+def _merge_character_dossier(state: AgentState, char_id: str, dossier_update) -> None:
     """Merge a dossier update into a character profile without mutating state in place."""
     profile = state.semantic.characters[char_id]
 
