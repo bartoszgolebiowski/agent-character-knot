@@ -133,6 +133,18 @@ class RelationshipInteractionOutput(BaseModel):
         default=None,
         description="If this interaction references a past event, describe it briefly",
     )
+    is_causal_node: bool = Field(
+        default=False,
+        description="True if this interaction creates a persistent causal node",
+    )
+    resolves_causal_node_id: Optional[str] = Field(
+        default=None,
+        description="Interaction ID of a prior causal node resolved here, if any",
+    )
+    causal_reasoning: Optional[str] = Field(
+        default=None,
+        description="Explanation for the causal connection, if applicable",
+    )
 
 
 class RelationshipExtractionOutput(BaseModel):
@@ -233,6 +245,44 @@ class ImportanceScoringOutput(BaseModel):
 # =============================================================================
 
 
+# =============================================================================
+# Character Dossier Updates (FR-12)
+# =============================================================================
+
+
+class CharacterDossierUpdate(BaseModel):
+    """Update entry for a character dossier."""
+
+    character_name: str = Field(
+        description="Character name or alias as referenced in this chapter",
+    )
+    identity: Optional[str] = Field(
+        default=None,
+        description="Concise identity summary",
+    )
+    core_traits: List[str] = Field(
+        default_factory=list,
+        description="Traits that should be added or reinforced",
+    )
+    current_goals: List[str] = Field(
+        default_factory=list,
+        description="Current goals or motivations",
+    )
+    evolution_summary: Optional[str] = Field(
+        default=None,
+        description="Short update to append to the evolution summary",
+    )
+    last_known_location: Optional[str] = Field(
+        default=None,
+        description="Most recent location, if mentioned",
+    )
+
+
+# =============================================================================
+# Chapter Analysis Combined Skill Output
+# =============================================================================
+
+
 class ChapterAnalysisOutput(BaseModel):
     """Combined output from analyzing a single chapter."""
 
@@ -251,4 +301,21 @@ class ChapterAnalysisOutput(BaseModel):
     event_extraction: EventExtractionOutput = Field(
         default_factory=EventExtractionOutput,
         description="Significant events from this chapter",
+    )
+    dossier_updates: List[CharacterDossierUpdate] = Field(
+        default_factory=list,
+        description="Refined dossier updates for characters in this chapter",
+    )
+
+
+# =============================================================================
+# Memory Consolidation Output (FR-13)
+# =============================================================================
+
+
+class ConsolidatedMemoryOutput(BaseModel):
+    """Consolidated summary for a group of chapters."""
+
+    summary: str = Field(
+        description="Single cohesive summary covering the provided chapters",
     )

@@ -9,6 +9,7 @@ deterministic decisions about what to do next.
 Flow:
     INITIAL -> SEGMENTATION -> LOAD_CHAPTER -> ANALYZE_CHAPTER
     -> CHECK_COMPLETION -> (loop back to LOAD_CHAPTER or proceed)
+    -> CONSOLIDATE_MEMORY (periodic)
     -> IMPORTANCE_SCORING -> GENERATE_REPORT -> COMPLETED
 """
 
@@ -59,6 +60,12 @@ TRANSITIONS: Dict[WorkflowStage, TransitionEntry] = {
         ActionType.NOOP,
         None,
         "Checking if more chapters remain",
+    ),
+    # Phase 4b: Consolidate memory (periodic compression)
+    WorkflowStage.CONSOLIDATE_MEMORY: (
+        ActionType.LLM_SKILL,
+        SkillName.CONSOLIDATE_MEMORY,
+        "Consolidating chapter summaries into a higher-level summary",
     ),
     # Phase 5: Score character importance (batch, after all chapters)
     WorkflowStage.IMPORTANCE_SCORING: (

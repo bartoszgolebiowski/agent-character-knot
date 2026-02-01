@@ -6,6 +6,7 @@ from .base import SkillDefinition, SkillName
 from .models import (
     AnalyzeAndPlanSkillOutput,
     ChapterAnalysisOutput,
+    ConsolidatedMemoryOutput,
     ImportanceScoringOutput,
 )
 
@@ -44,6 +45,17 @@ IMPORTANCE_SCORING_SKILL = SkillDefinition(
 
 
 # =============================================================================
+# Memory Consolidation Skills (FR-13)
+# =============================================================================
+
+CONSOLIDATE_MEMORY_SKILL = SkillDefinition(
+    name=SkillName.CONSOLIDATE_MEMORY,
+    template_name="skills/consolidate_memory.j2",
+    output_model=ConsolidatedMemoryOutput,
+)
+
+
+# =============================================================================
 # Skill Registry
 # =============================================================================
 
@@ -51,4 +63,5 @@ ALL_SKILLS = [
     ANALYZE_AND_PLAN_SKILL,
     ANALYZE_CHAPTER_SKILL,
     IMPORTANCE_SCORING_SKILL,
+    CONSOLIDATE_MEMORY_SKILL,
 ]

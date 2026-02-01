@@ -11,6 +11,7 @@ from src.skills.base import SkillName
 from src.skills.models import (
     AnalyzeAndPlanSkillOutput,
     ChapterAnalysisOutput,
+    ConsolidatedMemoryOutput,
     ImportanceScoringOutput,
 )
 from src.tools.models import (
@@ -24,6 +25,7 @@ from src.tools.models import (
 from .models import (
     AgentState,
     BookMetadata,
+    BookSummary,
     CausalLink,
     CharacterProfile,
     ChapterMetadata,
@@ -40,6 +42,8 @@ from .models import (
     WorkflowMemory,
     WorkingMemory,
 )
+
+CONSOLIDATION_BATCH_SIZE = 20
 
 # Type aliases for handlers
 SkillHandler = Callable[[AgentState, BaseModel], AgentState]
@@ -152,6 +156,8 @@ def skill_analyze_chapter_handler(
             aliases=new_char.aliases,
             first_appearance_chapter=chapter_index,
             description=new_char.description,
+            identity=new_char.description,
+            evolution_summary=new_char.description,
         )
         new_state.semantic.characters[char_id] = profile
 
@@ -231,6 +237,9 @@ def skill_analyze_chapter_handler(
                 chapter_title=chapter_title,
             ),
             references_event_id=referenced_event_id,
+            is_causal_node=interaction_out.is_causal_node,
+            resolves_interaction_id=interaction_out.resolves_causal_node_id,
+            causal_reasoning=interaction_out.causal_reasoning,
         )
 
         new_state.semantic.relationships[char_a_id][char_b_id].interactions.append(
@@ -240,6 +249,14 @@ def skill_analyze_chapter_handler(
             interaction
         )
         relationships_added += 1
+
+        if interaction_out.resolves_causal_node_id:
+            resolved = _find_interaction_by_id(
+                new_state.semantic.relationships,
+                interaction_out.resolves_causal_node_id,
+            )
+            if resolved and resolved.resolved_in_chapter is None:
+                resolved.resolved_in_chapter = chapter_index
 
     # -------------------------------------------------------------------------
     # 3. Process Event Extraction (FR-07)
@@ -319,6 +336,15 @@ def skill_analyze_chapter_handler(
         new_state.episodic.chapter_summaries.pop(0)
 
     # -------------------------------------------------------------------------
+    # 4b. Update Character Dossiers (FR-12)
+    # -------------------------------------------------------------------------
+    for dossier_update in output.dossier_updates:
+        char_id = _resolve_character_id(new_state, dossier_update.character_name)
+        if not char_id:
+            continue
+        _merge_character_dossier(new_state, char_id, dossier_update)
+
+    # -------------------------------------------------------------------------
     # 5. Update Resource Counters
     # -------------------------------------------------------------------------
     new_state.resource.llm_calls_made += 1
@@ -327,8 +353,13 @@ def skill_analyze_chapter_handler(
     # -------------------------------------------------------------------------
     # 6. Advance Workflow
     # -------------------------------------------------------------------------
+    next_stage = (
+        WorkflowStage.CONSOLIDATE_MEMORY
+        if _should_consolidate(new_state)
+        else WorkflowStage.CHECK_COMPLETION
+    )
     new_state.workflow.record_transition(
-        to_stage=WorkflowStage.CHECK_COMPLETION,
+        to_stage=next_stage,
         reason=f"Completed analysis of chapter {chapter_index + 1}",
     )
 
@@ -352,6 +383,35 @@ def skill_importance_scoring_handler(
     new_state.workflow.record_transition(
         to_stage=WorkflowStage.GENERATE_REPORT,
         reason="Importance scoring completed",
+    )
+
+    return new_state
+
+
+def skill_consolidate_memory_handler(
+    state: AgentState, output: ConsolidatedMemoryOutput
+) -> AgentState:
+    """Handler for hierarchical memory consolidation (FR-13)."""
+    new_state = deepcopy(state)
+
+    total_chapters = len(new_state.semantic.chapter_summaries)
+    consolidated_end = _last_consolidated_chapter(new_state)
+    start_index = consolidated_end + 1
+    end_index = min(start_index + CONSOLIDATION_BATCH_SIZE - 1, total_chapters - 1)
+
+    if start_index <= end_index:
+        new_state.semantic.book_summaries.append(
+            BookSummary(
+                start_chapter_index=start_index,
+                end_chapter_index=end_index,
+                summary=output.summary,
+            )
+        )
+
+    new_state.resource.llm_calls_made += 1
+    new_state.workflow.record_transition(
+        to_stage=WorkflowStage.CHECK_COMPLETION,
+        reason="Memory consolidation completed",
     )
 
     return new_state
@@ -522,6 +582,64 @@ def _find_event_by_description(
     return None
 
 
+def _find_interaction_by_id(
+    relationships: Dict[str, Dict[str, RelationshipHistory]], interaction_id: str
+) -> Optional[RelationshipInteraction]:
+    """Locate an interaction by ID across all relationship histories."""
+    for rel_map in relationships.values():
+        for history in rel_map.values():
+            for interaction in history.interactions:
+                if interaction.interaction_id == interaction_id:
+                    return interaction
+    return None
+
+
+def _merge_character_dossier(
+    state: AgentState, char_id: str, dossier_update
+) -> None:
+    """Merge a dossier update into a character profile without mutating state in place."""
+    profile = state.semantic.characters[char_id]
+
+    if dossier_update.identity:
+        profile.identity = dossier_update.identity
+
+    for trait in dossier_update.core_traits:
+        if trait and trait not in profile.core_traits:
+            profile.core_traits.append(trait)
+
+    for goal in dossier_update.current_goals:
+        if goal and goal not in profile.current_goals:
+            profile.current_goals.append(goal)
+
+    if dossier_update.evolution_summary:
+        if profile.evolution_summary:
+            profile.evolution_summary = (
+                profile.evolution_summary.strip()
+                + "\n"
+                + dossier_update.evolution_summary.strip()
+            )
+        else:
+            profile.evolution_summary = dossier_update.evolution_summary.strip()
+
+    if dossier_update.last_known_location:
+        profile.last_known_location = dossier_update.last_known_location
+
+
+def _last_consolidated_chapter(state: AgentState) -> int:
+    """Return the last chapter index included in consolidated summaries."""
+    if not state.semantic.book_summaries:
+        return -1
+    return max(summary.end_chapter_index for summary in state.semantic.book_summaries)
+
+
+def _should_consolidate(state: AgentState) -> bool:
+    """Determine whether memory consolidation should run."""
+    total = len(state.semantic.chapter_summaries)
+    if total == 0 or total % CONSOLIDATION_BATCH_SIZE != 0:
+        return False
+    return _last_consolidated_chapter(state) < total - 1
+
+
 # =============================================================================
 # Handler Registries
 # =============================================================================
@@ -531,6 +649,7 @@ _SKILL_HANDLERS: Dict[SkillName, SkillHandler] = {
     SkillName.ANALYZE_AND_PLAN: skill_analyze_and_plan_handler,  # type: ignore
     SkillName.ANALYZE_CHAPTER: skill_analyze_chapter_handler,  # type: ignore
     SkillName.IMPORTANCE_SCORING: skill_importance_scoring_handler,  # type: ignore
+    SkillName.CONSOLIDATE_MEMORY: skill_consolidate_memory_handler,  # type: ignore
 }
 
 _TOOL_HANDLERS: Dict[ToolName, ToolHandler] = {

@@ -28,11 +28,48 @@ You are analyzing a chapter from a literary work to extract characters, relation
 No characters discovered yet. This may be the first chapter.
 {% endif %}
 
+{% if relevant_profiles %}
+## Character Dossiers (relevant to this chapter)
+
+{% for profile in relevant_profiles %}
+- **{{ profile.canonical_name }}** (ID: {{ profile.id }})
+  - Identity: {{ profile.identity or "(none)" }}
+  - Core traits: {{ profile.core_traits | join(', ') if profile.core_traits else 'None' }}
+  - Current goals: {{ profile.current_goals | join(', ') if profile.current_goals else 'None' }}
+  - Evolution summary: {{ profile.evolution_summary or "(none)" }}
+  - Last known location: {{ profile.last_known_location or "(unknown)" }}
+{% endfor %}
+{% else %}
+## Character Dossiers
+
+No relevant dossiers found for this chapter.
+{% endif %}
+
 {% if events %}
 ## Previous Significant Events (for long-term reasoning)
 
 {% for event in events[-10:] %}
 - **Chapter {{ event.chapter_index + 1 }}**: {{ event.description }}
+{% endfor %}
+{% endif %}
+
+{% if active_causal_nodes %}
+## Active Causal Nodes (unresolved)
+
+{% for node in active_causal_nodes %}
+- **ID {{ node.interaction_id }}**: {{ node.relation_type }} between {{ node.character_a_id }} and {{ node.character_b_id }}
+  - Chapter {{ node.evidence.chapter_index + 1 }}: {{ node.context }}
+  - Evidence: "{{ node.evidence.quote }}"
+{% endfor %}
+{% endif %}
+
+{% if relationship_context %}
+## Recent Relationship Context
+
+{% for interaction in relationship_context %}
+- **ID {{ interaction.interaction_id }}**: {{ interaction.relation_type }} between {{ interaction.character_a_id }} and {{ interaction.character_b_id }}
+  - Chapter {{ interaction.evidence.chapter_index + 1 }}: {{ interaction.context }}
+  - Evidence: "{{ interaction.evidence.quote }}"
 {% endfor %}
 {% endif %}
 
@@ -74,6 +111,23 @@ Analyze the chapter text above and extract:
 - Relationship types should be specific (e.g., "Secret Alliance" not just "Positive")
 - Focus on quality over quantity - extract meaningful information only
 
+## Dossier Updates (FR-12)
+
+For each relevant character, provide dossier updates:
+- Updated identity (if refined)
+- Core traits (add new traits without duplicating)
+- Current goals
+- Evolution summary update (1-2 sentences)
+- Last known location (if mentioned)
+
+## Causal Relationship Indexing (FR-14)
+
+- Flag relationship interactions that should persist as causal nodes.
+- If a current interaction resolves a prior causal node, include the causal node ID.
+- Provide causal reasoning when applicable.
+
 ## Output Format
 
-Provide your analysis as structured JSON following the ChapterAnalysisOutput schema.
+Provide your analysis as structured JSON following the ChapterAnalysisOutput schema,
+including `dossier_updates` entries for relevant characters and causal node fields
+for relationship interactions.

@@ -41,6 +41,12 @@ def main():
         default=None,
         help="Maximum number of chapters to process (for testing)",
     )
+    parser.add_argument(
+        "--load-state",
+        dest="load_state",
+        default=None,
+        help="Path to a JSON file containing a previously saved AgentState to resume from",
+    )
     args = parser.parse_args()
 
     # Attempt to load environment variables from .env
@@ -67,6 +73,30 @@ def main():
         # Initialize the agent from environment configuration
         agent = Agent.from_env(agent_config=config)
 
+        # Optionally load a saved state
+        initial_state = None
+        if args.load_state:
+            from src.memory.models import AgentState
+
+            state_path = Path(args.load_state)
+            if not state_path.exists():
+                print(f"Error: State file not found: {state_path}")
+                sys.exit(1)
+            try:
+                import json
+
+                with state_path.open("r", encoding="utf-8") as fh:
+                    payload = json.load(fh)
+                # Use pydantic v2 model validation
+                try:
+                    initial_state = AgentState.model_validate(payload)
+                except AttributeError:
+                    # Fallback for pydantic v1
+                    initial_state = AgentState.parse_obj(payload)
+            except Exception as exc:
+                print(f"Error loading state file: {exc}")
+                sys.exit(1)
+
         # Define the analysis goal
         goal = f"Analyze '{args.title}' to extract characters, relationships, and significant events."
 
@@ -84,6 +114,7 @@ def main():
             goal=goal,
             source_file_path=str(source_path.absolute()),
             book_title=args.title,
+            initial_state=initial_state,
         )
 
         print()

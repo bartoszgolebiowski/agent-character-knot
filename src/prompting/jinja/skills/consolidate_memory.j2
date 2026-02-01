@@ -1,0 +1,27 @@
+{% include "memory/core.j2" %}
+
+# Memory Consolidation Task
+
+You are consolidating a group of chapter summaries into a single cohesive narrative arc.
+This summary should preserve major plot developments, key relationship shifts, and pivotal events.
+
+## Consolidation Window
+
+Chapters {{ consolidation_start + 1 }} to {{ consolidation_end + 1 }} ({{ consolidation_chapters | length }} chapters)
+
+## Chapter Summaries
+
+{% for summary in consolidation_chapters %}
+### Chapter {{ summary.index + 1 }}: {{ summary.title }}
+{{ summary.summary or "No summary available" }}
+{% endfor %}
+
+## Requirements
+
+- Produce a single cohesive summary (5-10 sentences).
+- Focus on enduring narrative changes and character evolution.
+- Mention only the most important relationships and events.
+
+## Output Format
+
+Provide your output as structured JSON following the ConsolidatedMemoryOutput schema.

@@ -26,7 +26,8 @@ class HTMLReportGeneratorTool:
         output_dir = Path(request.output_directory)
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        env = self._setup_jinja_environment(state)
+        interaction_index = self._build_interaction_index(state)
+        env = self._setup_jinja_environment(state, interaction_index)
 
         generated_files: List[str] = []
 
@@ -35,6 +36,7 @@ class HTMLReportGeneratorTool:
             output_dir=output_dir,
             request=request,
             state=state,
+            book_summaries=state.semantic.book_summaries,
         )
         generated_files.append(index_file)
 
@@ -42,6 +44,7 @@ class HTMLReportGeneratorTool:
             env=env,
             output_dir=output_dir,
             state=state,
+            interaction_index=interaction_index,
         )
         generated_files.extend(character_files)
 
@@ -49,6 +52,7 @@ class HTMLReportGeneratorTool:
             env=env,
             output_dir=output_dir,
             state=state,
+            interaction_index=interaction_index,
         )
         generated_files.extend(chapter_files)
 
@@ -63,7 +67,9 @@ class HTMLReportGeneratorTool:
             total_chapters=len(state.semantic.chapter_summaries),
         )
 
-    def _setup_jinja_environment(self, state: "AgentState") -> Environment:
+    def _setup_jinja_environment(
+        self, state: "AgentState", interaction_index: dict
+    ) -> Environment:
         template_path = Path(self.template_directory)
         template_path.mkdir(parents=True, exist_ok=True)
 
@@ -101,12 +107,39 @@ class HTMLReportGeneratorTool:
             empty_stars = 5 - full_stars
             return "★" * full_stars + "☆" * empty_stars
 
+        def interaction_link(interaction_id: str, text: str | None = None) -> Markup:
+            info = interaction_index.get(interaction_id)
+            if not info:
+                return Markup(f"[Unknown interaction: {interaction_id}]")
+            chapter_file = f"chapter-{info['chapter_index']:03d}.html"
+            display_text = text or info.get("label", "View interaction")
+            return Markup(
+                f'<a href="{chapter_file}#interaction-{interaction_id}">{display_text}</a>'
+            )
+
         env.filters["character_link"] = character_link
         env.filters["chapter_link"] = chapter_link
         env.filters["character_name"] = character_name
         env.filters["importance_stars"] = importance_stars
+        env.filters["interaction_link"] = interaction_link
 
         return env
+
+    def _build_interaction_index(self, state: "AgentState") -> dict:
+        interaction_index: dict = {}
+        for rel_map in state.semantic.relationships.values():
+            for history in rel_map.values():
+                for interaction in history.interactions:
+                    if interaction.interaction_id in interaction_index:
+                        continue
+                    interaction_index[interaction.interaction_id] = {
+                        "chapter_index": interaction.evidence.chapter_index,
+                        "label": (
+                            f"Chapter {interaction.evidence.chapter_index + 1}: "
+                            f"{interaction.relation_type}"
+                        ),
+                    }
+        return interaction_index
 
     def _generate_index_page(
         self,
@@ -115,6 +148,7 @@ class HTMLReportGeneratorTool:
         output_dir: Path,
         request: HTMLReportRequest,
         state: "AgentState",
+        book_summaries: list,
     ) -> str:
         sorted_characters = sorted(
             state.semantic.characters.values(),
@@ -137,6 +171,7 @@ class HTMLReportGeneratorTool:
             chapters=chapters,
             total_relationships=len(relationship_pairs),
             total_events=len(state.semantic.event_chronicle),
+            book_summaries=book_summaries,
         )
 
         output_path = output_dir / "index.html"
@@ -149,6 +184,7 @@ class HTMLReportGeneratorTool:
         env: Environment,
         output_dir: Path,
         state: "AgentState",
+        interaction_index: dict,
     ) -> List[str]:
         generated_files: List[str] = []
         events_by_id = {e.event_id: e for e in state.semantic.event_chronicle}
@@ -162,6 +198,7 @@ class HTMLReportGeneratorTool:
                 relationships=char_relationships,
                 all_characters=state.semantic.characters,
                 events_by_id=events_by_id,
+                interaction_index=interaction_index,
             )
 
             output_path = output_dir / f"character-{char_id}.html"
@@ -176,6 +213,7 @@ class HTMLReportGeneratorTool:
         env: Environment,
         output_dir: Path,
         state: "AgentState",
+        interaction_index: dict,
     ) -> List[str]:
         generated_files: List[str] = []
 
@@ -206,6 +244,7 @@ class HTMLReportGeneratorTool:
                 relationships=chapter_relationships,
                 all_characters=state.semantic.characters,
                 total_chapters=len(state.semantic.chapter_summaries),
+                interaction_index=interaction_index,
             )
 
             output_path = output_dir / f"chapter-{chapter_summary.index:03d}.html"
@@ -231,6 +270,7 @@ class HTMLReportGeneratorTool:
         chapters: list,
         total_relationships: int,
         total_events: int,
+        book_summaries: list,
     ) -> str:
         template = env.get_template("index.html.j2")
         return template.render(
@@ -240,6 +280,7 @@ class HTMLReportGeneratorTool:
             chapters=chapters,
             total_relationships=total_relationships,
             total_events=total_events,
+            book_summaries=book_summaries,
         )
 
     def _render_character_template(
@@ -250,6 +291,7 @@ class HTMLReportGeneratorTool:
         relationships: dict,
         all_characters: dict,
         events_by_id: dict,
+        interaction_index: dict,
     ) -> str:
         template = env.get_template("character.html.j2")
         return template.render(
@@ -257,6 +299,7 @@ class HTMLReportGeneratorTool:
             relationships=relationships,
             all_characters=all_characters,
             events_by_id=events_by_id,
+            interaction_index=interaction_index,
         )
 
     def _render_chapter_template(
@@ -268,6 +311,7 @@ class HTMLReportGeneratorTool:
         relationships: list,
         all_characters: dict,
         total_chapters: int,
+        interaction_index: dict,
     ) -> str:
         template = env.get_template("chapter.html.j2")
         return template.render(
@@ -276,4 +320,5 @@ class HTMLReportGeneratorTool:
             relationships=relationships,
             all_characters=all_characters,
             total_chapters=total_chapters,
+            interaction_index=interaction_index,
         )

@@ -30,6 +30,9 @@ class WorkflowStage(str, Enum):
         "CHECK_COMPLETION"  # Decide if more chapters or proceed to scoring
     )
 
+    # Phase 3b: Hierarchical Memory Consolidation
+    CONSOLIDATE_MEMORY = "CONSOLIDATE_MEMORY"
+
     # Phase 4: Final Processing
     IMPORTANCE_SCORING = "IMPORTANCE_SCORING"  # Score all characters
     GENERATE_REPORT = "GENERATE_REPORT"  # Create HTML report

@@ -4,7 +4,7 @@ import json
 import logging
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 from pydantic import BaseModel
 
@@ -33,6 +33,8 @@ from src.memory import (
 )
 
 logger = logging.getLogger(__name__)
+
+CONSOLIDATION_BATCH_SIZE = 20
 
 
 @dataclass(frozen=True, slots=True)
@@ -105,6 +107,8 @@ class Agent:
         self._config = config or AgentConfig()
         self._coordinator = coordinator or AgentActionCoordinator()
         self._logger = get_agent_logger()
+        # Track number of times the agent updates its in-memory state
+        self._state_update_count: int = 0
 
     @classmethod
     def from_env(
@@ -133,6 +137,7 @@ class Agent:
         goal: str,
         source_file_path: Optional[str] = None,
         book_title: str = "Unknown Book",
+        initial_state: Optional[AgentState] = None,
     ) -> AgentResult:
         """Execute the StoryGraph analysis workflow.
 
@@ -149,11 +154,16 @@ class Agent:
             if not Path(source_file_path).exists():
                 raise FileNotFoundError(f"Source file not found: {source_file_path}")
 
-        state = create_initial_state(
-            goal=goal,
-            source_file_path=source_file_path or "",
-            book_title=book_title,
-        )
+        # Use provided initial_state when available (loaded from disk),
+        # otherwise create a fresh initial state.
+        if initial_state is not None:
+            state = initial_state
+        else:
+            state = create_initial_state(
+                goal=goal,
+                source_file_path=source_file_path or "",
+                book_title=book_title,
+            )
 
         steps_executed = 0
         report_path: Optional[str] = None
@@ -186,6 +196,13 @@ class Agent:
                 output = self._llm_call(decision.skill, context)
                 self._log_llm_response(decision.skill, output)
                 state = update_state_from_skill(state, decision.skill, output)
+                # Count this state update and dump periodically
+                try:
+                    self._state_update_count += 1
+                    if self._state_update_count % 5 == 0:
+                        self._save_state_dump(state, f"step{self._state_update_count}")
+                except Exception:
+                    self._logger.exception("Failed while saving periodic state dump")
                 continue
 
             if decision.action_type == ActionType.TOOL and decision.tool_type:
@@ -202,6 +219,14 @@ class Agent:
                     f"Tool execution complete: {decision.tool_type.value}"
                 )
                 state = update_state_from_tool(state, decision.tool_type, output)
+
+                # Count this state update and dump periodically
+                try:
+                    self._state_update_count += 1
+                    if self._state_update_count % 5 == 0:
+                        self._save_state_dump(state, f"step{self._state_update_count}")
+                except Exception:
+                    self._logger.exception("Failed while saving periodic state dump")
 
                 # Capture report path if report was generated
                 if decision.tool_type == ToolName.HTML_REPORT_GENERATION:
@@ -222,14 +247,52 @@ class Agent:
             logger.warning(message)
             self._logger.warning(message)
 
+        # Save final state dump before returning
+        try:
+            self._save_state_dump(state, "final")
+        except Exception:
+            self._logger.exception("Failed while saving final state dump")
+
         return AgentResult(
             state=state,
             steps_executed=steps_executed,
             report_path=report_path,
         )
 
+    def _save_state_dump(self, state: AgentState, tag: str) -> None:
+        """Write the agent `state` to a JSON file under the `state/` directory.
+
+        Files are named `state_dump_<tag>.json` where `<tag>` is typically
+        a step count or `final`.
+        """
+        try:
+            out_dir = Path("state")
+            out_dir.mkdir(parents=True, exist_ok=True)
+            filename = out_dir / f"state_dump_{tag}.json"
+            # Use pydantic model_dump when available; fall back to dict()
+            try:
+                payload = state.model_dump(exclude_none=True)
+            except Exception:
+                try:
+                    payload = state.dict()
+                except Exception:
+                    payload = str(state)
+
+            with filename.open("w", encoding="utf-8") as fh:
+                json.dump(payload, fh, default=str, ensure_ascii=False, indent=2)
+
+            self._logger.info(f"Saved state dump: {filename}")
+        except Exception:
+            self._logger.exception("Failed to write state dump to disk")
+
     def _build_prompt_context(self, state: AgentState) -> Dict[str, object]:
         """Build the context dictionary for prompt rendering."""
+        current_text = state.working.current_chapter_text or ""
+        relevant_profiles = self._select_relevant_profiles(state, current_text)
+        active_causal_nodes = self._active_causal_nodes(state)
+        relationship_context = self._relationship_context(state, active_causal_nodes)
+        consolidation_payload = self._consolidation_payload(state)
+
         return {
             "state": state,
             "core": state.core,
@@ -246,7 +309,106 @@ class Agent:
             "characters": state.semantic.characters,
             "relationships": state.semantic.relationships,
             "events": state.semantic.event_chronicle,
+            "relevant_profiles": relevant_profiles,
+            "active_causal_nodes": active_causal_nodes,
+            "relationship_context": relationship_context,
+            "consolidation_chapters": consolidation_payload["chapters"],
+            "consolidation_start": consolidation_payload["start"],
+            "consolidation_end": consolidation_payload["end"],
         }
+
+    def _select_relevant_profiles(
+        self, state: AgentState, chapter_text: str
+    ) -> List[dict]:
+        if not chapter_text or not state.semantic.characters:
+            return []
+
+        text_lower = chapter_text.lower()
+        relevant: List[dict] = []
+
+        for char_id, profile in state.semantic.characters.items():
+            mentions = [profile.canonical_name] + profile.aliases
+            if any(name.lower() in text_lower for name in mentions if name):
+                relevant.append(
+                    {
+                        "id": char_id,
+                        "canonical_name": profile.canonical_name,
+                        "aliases": profile.aliases,
+                        "identity": profile.identity,
+                        "core_traits": profile.core_traits,
+                        "current_goals": profile.current_goals,
+                        "evolution_summary": profile.evolution_summary,
+                        "last_known_location": profile.last_known_location,
+                    }
+                )
+
+        return relevant
+
+    def _active_causal_nodes(self, state: AgentState) -> List[object]:
+        seen: set[str] = set()
+        active_nodes: List[object] = []
+
+        for rel_map in state.semantic.relationships.values():
+            for history in rel_map.values():
+                for interaction in history.interactions:
+                    if (
+                        interaction.is_causal_node
+                        and interaction.resolved_in_chapter is None
+                        and interaction.interaction_id not in seen
+                    ):
+                        active_nodes.append(interaction)
+                        seen.add(interaction.interaction_id)
+
+        return active_nodes
+
+    def _relationship_context(
+        self, state: AgentState, active_causal_nodes: List[object]
+    ) -> List[object]:
+        seen: set[str] = set()
+        context: List[object] = []
+        recent_indices = set(state.episodic.recent_chapter_indices)
+
+        for rel_map in state.semantic.relationships.values():
+            for history in rel_map.values():
+                for interaction in history.interactions:
+                    if interaction.interaction_id in seen:
+                        continue
+                    if interaction.evidence.chapter_index in recent_indices:
+                        context.append(interaction)
+                        seen.add(interaction.interaction_id)
+
+        for interaction in active_causal_nodes:
+            if interaction.interaction_id not in seen:
+                context.append(interaction)
+                seen.add(interaction.interaction_id)
+
+        return context
+
+    def _consolidation_payload(self, state: AgentState) -> Dict[str, object]:
+        total = len(state.semantic.chapter_summaries)
+        if total == 0:
+            return {"chapters": [], "start": 0, "end": -1}
+
+        consolidated_end = (
+            max(
+                (
+                    summary.end_chapter_index
+                    for summary in state.semantic.book_summaries
+                ),
+                default=-1,
+            )
+            if state.semantic.book_summaries
+            else -1
+        )
+        start = consolidated_end + 1
+        end = min(start + CONSOLIDATION_BATCH_SIZE - 1, total - 1)
+        chapters = [
+            summary
+            for summary in state.semantic.chapter_summaries
+            if start <= summary.index <= end
+        ]
+
+        return {"chapters": chapters, "start": start, "end": end}
 
     def _log_decision(self, decision: CoordinatorDecision, state: AgentState) -> None:
         self._logger.info(

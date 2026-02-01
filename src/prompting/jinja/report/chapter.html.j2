@@ -56,7 +56,7 @@
             <h2>Relationship Changes ({{ relationships | length }})</h2>
             {% if relationships %}
                 {% for interaction in relationships %}
-                <div class="interaction">
+                <div class="interaction {% if interaction.is_causal_node %}causal-node{% endif %}" id="interaction-{{ interaction.interaction_id }}">
                     <p class="interaction-type">{{ interaction.relation_type }}</p>
                     <p>
                         {{ interaction.character_a_id | character_link | safe }}
@@ -64,7 +64,16 @@
                         {{ interaction.character_b_id | character_link | safe }}
                     </p>
                     <p>{{ interaction.context }}</p>
+                    {% if interaction.causal_reasoning %}
+                    <p><strong>Causal Reasoning:</strong> {{ interaction.causal_reasoning }}</p>
+                    {% endif %}
                     <div class="quote">"{{ interaction.evidence.quote }}"</div>
+                    {% if interaction.resolves_interaction_id %}
+                    <p class="causal-link">
+                        <strong>Reason:</strong>
+                        {{ interaction.resolves_interaction_id | interaction_link("View causal origin") | safe }}
+                    </p>
+                    {% endif %}
                 </div>
                 {% endfor %}
             {% else %}

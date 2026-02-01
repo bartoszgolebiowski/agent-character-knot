@@ -21,6 +21,9 @@ class SkillName(str, Enum):
     # FR-05: Importance scoring (batch, runs after all chapters)
     IMPORTANCE_SCORING = "importance_scoring"
 
+    # FR-13: Hierarchical memory consolidation
+    CONSOLIDATE_MEMORY = "consolidate_memory"
+
 
 @dataclass(frozen=True, slots=True)
 class SkillDefinition:

@@ -14,6 +14,7 @@
 
     <nav>
         <a href="index.html">Home</a>
+        <a href="#book-summaries">Book Summaries ({{ book_summaries | length }})</a>
         <a href="#characters">Characters ({{ characters | length }})</a>
         <a href="#chapters">Chapters ({{ chapters | length }})</a>
     </nav>
@@ -25,6 +26,20 @@
             <strong>{{ total_relationships }}</strong> relationship connections, and
             <strong>{{ total_events }}</strong> significant events across
             <strong>{{ chapters | length }}</strong> chapters.</p>
+        </section>
+
+        <section id="book-summaries">
+            <h2>Book Summaries</h2>
+            {% if book_summaries %}
+                {% for summary in book_summaries %}
+                <div class="event-card">
+                    <p><strong>Chapters {{ summary.start_chapter_index + 1 }}–{{ summary.end_chapter_index + 1 }}</strong></p>
+                    <p>{{ summary.summary }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No consolidated summaries available yet.</p>
+            {% endif %}
         </section>
 
         <section id="characters">

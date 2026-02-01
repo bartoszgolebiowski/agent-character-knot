@@ -24,6 +24,11 @@
             </span></p>
             <p><strong>First Appearance:</strong> {{ character.first_appearance_chapter | chapter_link | safe }}</p>
             <p><strong>Description:</strong> {{ character.description or "No description available." }}</p>
+            <p><strong>Identity:</strong> {{ character.identity or "No identity summary available." }}</p>
+            <p><strong>Core Traits:</strong> {{ character.core_traits | join(", ") if character.core_traits else "None" }}</p>
+            <p><strong>Current Goals:</strong> {{ character.current_goals | join(", ") if character.current_goals else "None" }}</p>
+            <p><strong>Evolution Summary:</strong> {{ character.evolution_summary or "No evolution summary available." }}</p>
+            <p><strong>Last Known Location:</strong> {{ character.last_known_location or "Unknown" }}</p>
         </section>
 
         <section>
@@ -35,16 +40,26 @@
                     <p class="current-status"><strong>Current Status:</strong> {{ history.latest_relation_type }}</p>
 
                     {% for interaction in history.interactions %}
-                    <div class="interaction">
+                    <div class="interaction {% if interaction.is_causal_node %}causal-node{% endif %}" id="interaction-{{ interaction.interaction_id }}">
                         <p class="interaction-type">{{ interaction.relation_type }}</p>
                         <p><strong>Context:</strong> {{ interaction.context }}</p>
                         <p><strong>Reasoning:</strong> {{ interaction.reasoning }}</p>
+                        {% if interaction.causal_reasoning %}
+                        <p><strong>Causal Reasoning:</strong> {{ interaction.causal_reasoning }}</p>
+                        {% endif %}
                         <div class="quote">
                             "{{ interaction.evidence.quote }}"
                             <p class="attribution">
                                 — {{ interaction.evidence.chapter_index | chapter_link(interaction.evidence.chapter_title) | safe }}
                             </p>
                         </div>
+
+                        {% if interaction.resolves_interaction_id %}
+                        <p class="causal-link">
+                            <strong>Reason:</strong>
+                            {{ interaction.resolves_interaction_id | interaction_link("View causal origin") | safe }}
+                        </p>
+                        {% endif %}
 
                         {% if interaction.references_event_id and interaction.references_event_id in events_by_id %}
                         {% set event = events_by_id[interaction.references_event_id] %}

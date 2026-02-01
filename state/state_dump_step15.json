@@ -1,0 +1,2002 @@
+{
+  "core": {
+    "persona": "You are an expert literary analyst specializing in character relationships and narrative structure."
+  },
+  "working": {
+    "current_chapter_index": 6,
+    "total_chapters": 28,
+    "total_books": 1,
+    "current_chapter_text": "CHAPTER VII\n\nThe rustle of a woman’s dress was heard in the next room. Prince\nAndrew shook himself as if waking up, and his face assumed the look it\nhad had in Anna Pávlovna’s drawing room. Pierre removed his feet from\nthe sofa. The princess came in. She had changed her gown for a house\ndress as fresh and elegant as the other. Prince Andrew rose and politely\nplaced a chair for her.\n\n“How is it,” she began, as usual in French, settling down briskly\nand fussily in the easy chair, “how is it Annette never got married?\nHow stupid you men all are not to have married her! Excuse me for saying\nso, but you have no sense about women. What an argumentative fellow you\nare, Monsieur Pierre!”\n\n“And I am still arguing with your husband. I can’t understand why he\nwants to go to the war,” replied Pierre, addressing the princess\nwith none of the embarrassment so commonly shown by young men in their\nintercourse with young women.\n\nThe princess started. Evidently Pierre’s words touched her to the\nquick.\n\n“Ah, that is just what I tell him!” said she. “I don’t\nunderstand it; I don’t in the least understand why men can’t live\nwithout wars. How is it that we women don’t want anything of the kind,\ndon’t need it? Now you shall judge between us. I always tell him: Here\nhe is Uncle’s aide-de-camp, a most brilliant position. He is so\nwell known, so much appreciated by everyone. The other day at the\nApráksins’ I heard a lady asking, ‘Is that the famous Prince\nAndrew?’ I did indeed.” She laughed. “He is so well received\neverywhere. He might easily become aide-de-camp to the Emperor. You know\nthe Emperor spoke to him most graciously. Annette and I were speaking of\nhow to arrange it. What do you think?”\n\nPierre looked at his friend and, noticing that he did not like the\nconversation, gave no reply.\n\n“When are you starting?” he asked.\n\n“Oh, don’t speak of his going, don’t! I won’t hear it spoken\nof,” said the princess in the same petulantly playful tone in which\nshe had spoken to Hippolyte in the drawing room and which was so plainly\nill-suited to the family circle of which Pierre was almost a member.\n“Today when I remembered that all these delightful associations\nmust be broken off ... and then you know, André...” (she looked\nsignificantly at her husband) “I’m afraid, I’m afraid!” she\nwhispered, and a shudder ran down her back.\n\nHer husband looked at her as if surprised to notice that someone besides\nPierre and himself was in the room, and addressed her in a tone of\nfrigid politeness.\n\n“What is it you are afraid of, Lise? I don’t understand,” said he.\n\n“There, what egotists men all are: all, all egotists! Just for a whim\nof his own, goodness only knows why, he leaves me and locks me up alone\nin the country.”\n\n“With my father and sister, remember,” said Prince Andrew gently.\n\n“Alone all the same, without my friends.... And he expects me not to\nbe afraid.”\n\nHer tone was now querulous and her lip drawn up, giving her not a\njoyful, but an animal, squirrel-like expression. She paused as if she\nfelt it indecorous to speak of her pregnancy before Pierre, though the\ngist of the matter lay in that.\n\n“I still can’t understand what you are afraid of,” said Prince\nAndrew slowly, not taking his eyes off his wife.\n\nThe princess blushed, and raised her arms with a gesture of despair.\n\n“No, Andrew, I must say you have changed. Oh, how you have....”\n\n“Your doctor tells you to go to bed earlier,” said Prince Andrew.\n“You had better go.”\n\nThe princess said nothing, but suddenly her short downy lip quivered.\nPrince Andrew rose, shrugged his shoulders, and walked about the room.\n\nPierre looked over his spectacles with naïve surprise, now at him and\nnow at her, moved as if about to rise too, but changed his mind.\n\n“Why should I mind Monsieur Pierre being here?” exclaimed the little\nprincess suddenly, her pretty face all at once distorted by a tearful\ngrimace. “I have long wanted to ask you, Andrew, why you have changed\nso to me? What have I done to you? You are going to the war and have no\npity for me. Why is it?”\n\n“Lise!” was all Prince Andrew said. But that one word expressed\nan entreaty, a threat, and above all conviction that she would herself\nregret her words. But she went on hurriedly:\n\n“You treat me like an invalid or a child. I see it all! Did you behave\nlike that six months ago?”\n\n“Lise, I beg you to desist,” said Prince Andrew still more\nemphatically.\n\nPierre, who had been growing more and more agitated as he listened to\nall this, rose and approached the princess. He seemed unable to bear the\nsight of tears and was ready to cry himself.\n\n“Calm yourself, Princess! It seems so to you because.... I assure you\nI myself have experienced ... and so ... because ... No, excuse me!\nAn outsider is out of place here.... No, don’t distress yourself....\nGood-by!”\n\nPrince Andrew caught him by the hand.\n\n“No, wait, Pierre! The princess is too kind to wish to deprive me of\nthe pleasure of spending the evening with you.”\n\n“No, he thinks only of himself,” muttered the princess without\nrestraining her angry tears.\n\n“Lise!” said Prince Andrew dryly, raising his voice to the pitch\nwhich indicates that patience is exhausted.\n\nSuddenly the angry, squirrel-like expression of the princess’ pretty\nface changed into a winning and piteous look of fear. Her beautiful eyes\nglanced askance at her husband’s face, and her own assumed the timid,\ndeprecating expression of a dog when it rapidly but feebly wags its\ndrooping tail.\n\n“Mon Dieu, mon Dieu!” she muttered, and lifting her dress with one\nhand she went up to her husband and kissed him on the forehead.\n\n“Good night, Lise,” said he, rising and courteously kissing her hand\nas he would have done to a stranger.\n\n\n\n\n\n",
+    "current_chapter_title": "CHAPTER VII",
+    "source_file_path": "C:\\Users\\golebiowskib\\OneDrive - TRANSITION TECHNOLOGIES PSC S.A\\Desktop\\coding\\agents\\agent-character-knot\\static\\war-and-peace-by-leo-tolstoy-small.txt",
+    "book_title": "War and Peace",
+    "chapter_map": [
+      {
+        "index": 0,
+        "title": "CHAPTER I",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 1,
+        "start_line": 7,
+        "end_line": 241,
+        "line_count": 235
+      },
+      {
+        "index": 1,
+        "title": "CHAPTER II",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 2,
+        "start_line": 242,
+        "end_line": 383,
+        "line_count": 142
+      },
+      {
+        "index": 2,
+        "title": "CHAPTER III",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 3,
+        "start_line": 384,
+        "end_line": 560,
+        "line_count": 177
+      },
+      {
+        "index": 3,
+        "title": "CHAPTER IV",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 4,
+        "start_line": 561,
+        "end_line": 737,
+        "line_count": 177
+      },
+      {
+        "index": 4,
+        "title": "CHAPTER V",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 5,
+        "start_line": 738,
+        "end_line": 992,
+        "line_count": 255
+      },
+      {
+        "index": 5,
+        "title": "CHAPTER VI",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 6,
+        "start_line": 993,
+        "end_line": 1172,
+        "line_count": 180
+      },
+      {
+        "index": 6,
+        "title": "CHAPTER VII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 7,
+        "start_line": 1173,
+        "end_line": 1309,
+        "line_count": 137
+      },
+      {
+        "index": 7,
+        "title": "CHAPTER VIII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 8,
+        "start_line": 1310,
+        "end_line": 1446,
+        "line_count": 137
+      },
+      {
+        "index": 8,
+        "title": "CHAPTER IX",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 9,
+        "start_line": 1447,
+        "end_line": 1709,
+        "line_count": 263
+      },
+      {
+        "index": 9,
+        "title": "CHAPTER X",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 10,
+        "start_line": 1710,
+        "end_line": 1901,
+        "line_count": 192
+      },
+      {
+        "index": 10,
+        "title": "CHAPTER XI",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 11,
+        "start_line": 1902,
+        "end_line": 2004,
+        "line_count": 103
+      },
+      {
+        "index": 11,
+        "title": "CHAPTER XII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 12,
+        "start_line": 2005,
+        "end_line": 2164,
+        "line_count": 160
+      },
+      {
+        "index": 12,
+        "title": "CHAPTER XIII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 13,
+        "start_line": 2165,
+        "end_line": 2279,
+        "line_count": 115
+      },
+      {
+        "index": 13,
+        "title": "CHAPTER XIV",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 14,
+        "start_line": 2280,
+        "end_line": 2470,
+        "line_count": 191
+      },
+      {
+        "index": 14,
+        "title": "CHAPTER XV",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 15,
+        "start_line": 2471,
+        "end_line": 2671,
+        "line_count": 201
+      },
+      {
+        "index": 15,
+        "title": "CHAPTER XVI",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 16,
+        "start_line": 2672,
+        "end_line": 2899,
+        "line_count": 228
+      },
+      {
+        "index": 16,
+        "title": "CHAPTER XVII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 17,
+        "start_line": 2900,
+        "end_line": 3005,
+        "line_count": 106
+      },
+      {
+        "index": 17,
+        "title": "CHAPTER XVIII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 18,
+        "start_line": 3006,
+        "end_line": 3260,
+        "line_count": 255
+      },
+      {
+        "index": 18,
+        "title": "CHAPTER XIX",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 19,
+        "start_line": 3261,
+        "end_line": 3429,
+        "line_count": 169
+      },
+      {
+        "index": 19,
+        "title": "CHAPTER XX",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 20,
+        "start_line": 3430,
+        "end_line": 3677,
+        "line_count": 248
+      },
+      {
+        "index": 20,
+        "title": "CHAPTER XXI",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 21,
+        "start_line": 3678,
+        "end_line": 4023,
+        "line_count": 346
+      },
+      {
+        "index": 21,
+        "title": "CHAPTER XXII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 22,
+        "start_line": 4024,
+        "end_line": 4215,
+        "line_count": 192
+      },
+      {
+        "index": 22,
+        "title": "CHAPTER XXIII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 23,
+        "start_line": 4216,
+        "end_line": 4390,
+        "line_count": 175
+      },
+      {
+        "index": 23,
+        "title": "CHAPTER XXIV",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 24,
+        "start_line": 4391,
+        "end_line": 4597,
+        "line_count": 207
+      },
+      {
+        "index": 24,
+        "title": "CHAPTER XXV",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 25,
+        "start_line": 4598,
+        "end_line": 4959,
+        "line_count": 362
+      },
+      {
+        "index": 25,
+        "title": "CHAPTER XXVI",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 26,
+        "start_line": 4960,
+        "end_line": 5202,
+        "line_count": 243
+      },
+      {
+        "index": 26,
+        "title": "CHAPTER XXVII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 27,
+        "start_line": 5203,
+        "end_line": 5390,
+        "line_count": 188
+      },
+      {
+        "index": 27,
+        "title": "CHAPTER XXVIII",
+        "book_index": 0,
+        "book_title": "BOOK ONE: 1805",
+        "chapter_number": 28,
+        "start_line": 5391,
+        "end_line": 5799,
+        "line_count": 409
+      }
+    ],
+    "book_map": [
+      {
+        "index": 0,
+        "title": "BOOK ONE: 1805",
+        "start_line": 1,
+        "end_line": 5799,
+        "line_count": 5799,
+        "chapters": [
+          {
+            "index": 0,
+            "title": "CHAPTER I",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 1,
+            "start_line": 7,
+            "end_line": 241,
+            "line_count": 235
+          },
+          {
+            "index": 1,
+            "title": "CHAPTER II",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 2,
+            "start_line": 242,
+            "end_line": 383,
+            "line_count": 142
+          },
+          {
+            "index": 2,
+            "title": "CHAPTER III",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 3,
+            "start_line": 384,
+            "end_line": 560,
+            "line_count": 177
+          },
+          {
+            "index": 3,
+            "title": "CHAPTER IV",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 4,
+            "start_line": 561,
+            "end_line": 737,
+            "line_count": 177
+          },
+          {
+            "index": 4,
+            "title": "CHAPTER V",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 5,
+            "start_line": 738,
+            "end_line": 992,
+            "line_count": 255
+          },
+          {
+            "index": 5,
+            "title": "CHAPTER VI",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 6,
+            "start_line": 993,
+            "end_line": 1172,
+            "line_count": 180
+          },
+          {
+            "index": 6,
+            "title": "CHAPTER VII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 7,
+            "start_line": 1173,
+            "end_line": 1309,
+            "line_count": 137
+          },
+          {
+            "index": 7,
+            "title": "CHAPTER VIII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 8,
+            "start_line": 1310,
+            "end_line": 1446,
+            "line_count": 137
+          },
+          {
+            "index": 8,
+            "title": "CHAPTER IX",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 9,
+            "start_line": 1447,
+            "end_line": 1709,
+            "line_count": 263
+          },
+          {
+            "index": 9,
+            "title": "CHAPTER X",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 10,
+            "start_line": 1710,
+            "end_line": 1901,
+            "line_count": 192
+          },
+          {
+            "index": 10,
+            "title": "CHAPTER XI",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 11,
+            "start_line": 1902,
+            "end_line": 2004,
+            "line_count": 103
+          },
+          {
+            "index": 11,
+            "title": "CHAPTER XII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 12,
+            "start_line": 2005,
+            "end_line": 2164,
+            "line_count": 160
+          },
+          {
+            "index": 12,
+            "title": "CHAPTER XIII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 13,
+            "start_line": 2165,
+            "end_line": 2279,
+            "line_count": 115
+          },
+          {
+            "index": 13,
+            "title": "CHAPTER XIV",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 14,
+            "start_line": 2280,
+            "end_line": 2470,
+            "line_count": 191
+          },
+          {
+            "index": 14,
+            "title": "CHAPTER XV",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 15,
+            "start_line": 2471,
+            "end_line": 2671,
+            "line_count": 201
+          },
+          {
+            "index": 15,
+            "title": "CHAPTER XVI",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 16,
+            "start_line": 2672,
+            "end_line": 2899,
+            "line_count": 228
+          },
+          {
+            "index": 16,
+            "title": "CHAPTER XVII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 17,
+            "start_line": 2900,
+            "end_line": 3005,
+            "line_count": 106
+          },
+          {
+            "index": 17,
+            "title": "CHAPTER XVIII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 18,
+            "start_line": 3006,
+            "end_line": 3260,
+            "line_count": 255
+          },
+          {
+            "index": 18,
+            "title": "CHAPTER XIX",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 19,
+            "start_line": 3261,
+            "end_line": 3429,
+            "line_count": 169
+          },
+          {
+            "index": 19,
+            "title": "CHAPTER XX",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 20,
+            "start_line": 3430,
+            "end_line": 3677,
+            "line_count": 248
+          },
+          {
+            "index": 20,
+            "title": "CHAPTER XXI",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 21,
+            "start_line": 3678,
+            "end_line": 4023,
+            "line_count": 346
+          },
+          {
+            "index": 21,
+            "title": "CHAPTER XXII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 22,
+            "start_line": 4024,
+            "end_line": 4215,
+            "line_count": 192
+          },
+          {
+            "index": 22,
+            "title": "CHAPTER XXIII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 23,
+            "start_line": 4216,
+            "end_line": 4390,
+            "line_count": 175
+          },
+          {
+            "index": 23,
+            "title": "CHAPTER XXIV",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 24,
+            "start_line": 4391,
+            "end_line": 4597,
+            "line_count": 207
+          },
+          {
+            "index": 24,
+            "title": "CHAPTER XXV",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 25,
+            "start_line": 4598,
+            "end_line": 4959,
+            "line_count": 362
+          },
+          {
+            "index": 25,
+            "title": "CHAPTER XXVI",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 26,
+            "start_line": 4960,
+            "end_line": 5202,
+            "line_count": 243
+          },
+          {
+            "index": 26,
+            "title": "CHAPTER XXVII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 27,
+            "start_line": 5203,
+            "end_line": 5390,
+            "line_count": 188
+          },
+          {
+            "index": 27,
+            "title": "CHAPTER XXVIII",
+            "book_index": 0,
+            "book_title": "BOOK ONE: 1805",
+            "chapter_number": 28,
+            "start_line": 5391,
+            "end_line": 5799,
+            "line_count": 409
+          }
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "current_stage": "CHECK_COMPLETION",
+    "goal": "Analyze 'War and Peace' to extract characters, relationships, and significant events.",
+    "history": [
+      {
+        "from_stage": "INITIAL",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:55:46.153419",
+        "reason": "Segmentation complete: 28 chapters detected"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:55:46.156420",
+        "reason": "Loaded chapter 1: CHAPTER I"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:55:58.325073",
+        "reason": "Completed analysis of chapter 1"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:55:58.326074",
+        "reason": "Proceeding to chapter 2"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:55:58.328079",
+        "reason": "Loaded chapter 2: CHAPTER II"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:56:12.282162",
+        "reason": "Completed analysis of chapter 2"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:56:12.287680",
+        "reason": "Proceeding to chapter 3"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:56:12.290514",
+        "reason": "Loaded chapter 3: CHAPTER III"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:56:26.781891",
+        "reason": "Completed analysis of chapter 3"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:56:26.781891",
+        "reason": "Proceeding to chapter 4"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:56:26.781891",
+        "reason": "Loaded chapter 4: CHAPTER IV"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:56:42.760170",
+        "reason": "Completed analysis of chapter 4"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:56:42.760170",
+        "reason": "Proceeding to chapter 5"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:56:42.760170",
+        "reason": "Loaded chapter 5: CHAPTER V"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:56:58.517194",
+        "reason": "Completed analysis of chapter 5"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:56:58.517194",
+        "reason": "Proceeding to chapter 6"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:56:58.519202",
+        "reason": "Loaded chapter 6: CHAPTER VI"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:57:12.824274",
+        "reason": "Completed analysis of chapter 6"
+      },
+      {
+        "from_stage": "CHECK_COMPLETION",
+        "to_stage": "LOAD_CHAPTER",
+        "timestamp": "2026-02-01 16:57:12.826287",
+        "reason": "Proceeding to chapter 7"
+      },
+      {
+        "from_stage": "LOAD_CHAPTER",
+        "to_stage": "ANALYZE_CHAPTER",
+        "timestamp": "2026-02-01 16:57:12.828298",
+        "reason": "Loaded chapter 7: CHAPTER VII"
+      },
+      {
+        "from_stage": "ANALYZE_CHAPTER",
+        "to_stage": "CHECK_COMPLETION",
+        "timestamp": "2026-02-01 16:57:26.363462",
+        "reason": "Completed analysis of chapter 7"
+      }
+    ]
+  },
+  "episodic": {
+    "raw_events": [],
+    "recent_chapter_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "window_size": 5,
+    "chapter_summaries": [
+      {
+        "index": 2,
+        "title": "CHAPTER III",
+        "summary": "Anna Pávlovna organizes her guests into three distinct groups to facilitate conversation. The primary focus is on the Vicomte de Mortemart, whom Anna 'serves up' as a storyteller to discuss the murder of the Duc d’Enghien. Hélène Kurágina and Lise Bolkónskaya join this circle, while Prince Hippolyte Kurágin is introduced as Hélène's physically similar but intellectually inferior brother.",
+        "characters_introduced": [
+          "36114f3f-d6fe-4530-9cd2-072ec87436dc"
+        ],
+        "events_count": 2,
+        "relationships_count": 1
+      },
+      {
+        "index": 3,
+        "title": "CHAPTER IV",
+        "summary": "Prince Andrew Bolkónski arrives at the soirée, displaying a weary and bored demeanor toward high society and his wife, Lise. He reveals he is departing for war as an aide-de-camp to General Kutúzov. Pierre Bezúkhov shows great affection for Andrew, and they agree to meet for supper. Meanwhile, Prince Vasíli and Hélène depart, but not before Princess Drubetskáya entreats Vasíli to use his influence to secure a military appointment for her son, Borís.",
+        "characters_introduced": [
+          "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "994186aa-8b48-4928-ab04-7b509d637a53",
+          "a01b82de-7c90-4d20-9948-3d6b0999d7ac"
+        ],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 4,
+        "title": "CHAPTER V",
+        "summary": "The conversation at Anna Pávlovna's soirée turns to Napoleon's recent actions in Italy and the execution of the Duc d’Enghien. Pierre Bezúkhov shocks the aristocratic guests by defending Napoleon's actions as political necessities for the general good, while Prince Andrew supports Pierre's logic despite his own cynical outlook. The hostess, Anna Pávlovna, attempts to steer the conversation away from Pierre's controversial and socially inappropriate defense of the Revolution.",
+        "characters_introduced": [],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 5,
+        "title": "CHAPTER VI",
+        "summary": "As the soiree concludes, Pierre's social awkwardness is highlighted, though Anna Pávlovna offers him a mild, conditional forgiveness. Prince Hippolyte flirtatiously attends to Princess Lise, much to the indifference of Prince Andrew. Anna Pávlovna and Lise finalize a plan to match Anatole Kurágin with Andrew's sister. The chapter ends with Pierre and Andrew arriving at Andrew's home, where they begin a private discussion about Pierre's future and the political ideas discussed at the party.",
+        "characters_introduced": [
+          "214e601f-fce1-427d-9d54-fd55e64b518b"
+        ],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 6,
+        "title": "CHAPTER VII",
+        "summary": "Prince Andrew, Pierre, and Princess Lise Bolkónskaya converse in Andrew's study. Lise expresses her fear and resentment regarding Andrew's departure for the war, accusing him of being an egotist and changing toward her. The interaction reveals a deep marital strain, with Andrew treating her with cold, formal politeness while Pierre watches with awkward discomfort. The chapter ends with Lise's emotional outburst subsiding into a piteous submission before she retires for the night.",
+        "characters_introduced": [],
+        "events_count": 2,
+        "relationships_count": 2
+      }
+    ]
+  },
+  "semantic": {
+    "characters": {
+      "05d36871-2501-4fad-95b8-b375384f7650": {
+        "id": "05d36871-2501-4fad-95b8-b375384f7650",
+        "canonical_name": "Anna Pávlovna Schérer",
+        "aliases": [
+          "Annette Schérer",
+          "Annette",
+          "Anna Pávlovna"
+        ],
+        "first_appearance_chapter": 0,
+        "description": "A 40-year-old maid of honor to Empress Márya Fëdorovna, characterized by her social enthusiasm and political fervor.",
+        "identity": "Hostess and social gatekeeper of Petersburg society.",
+        "core_traits": [
+          "Enthusiastic",
+          "Impulsive",
+          "Politically fervent",
+          "Socially influential",
+          "Anxious regarding social propriety",
+          "Meticulous",
+          "Performative"
+        ],
+        "current_goals": [
+          "Host a successful reception",
+          "Promote support for the war against Napoleon",
+          "Ensure all guests follow the protocol of greeting her aunt",
+          "Manage the social reputation of her salon"
+        ],
+        "evolution_summary": "A 40-year-old maid of honor to Empress Márya Fëdorovna, characterized by her social enthusiasm and political fervor.\nIntroduced as a high-society hostess who uses her 'enthusiasm' as a social vocation to influence court opinion.\nShe is shown to be highly sensitive to social hierarchy, treating guests differently based on their status and showing visible distress when etiquette is breached.",
+        "last_known_location": "Anna Pávlovna's drawing room, St. Petersburg",
+        "importance_score": 0.0
+      },
+      "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71": {
+        "id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+        "canonical_name": "Prince Vasíli Kurágin",
+        "aliases": [
+          "Prince Vasíli"
+        ],
+        "first_appearance_chapter": 0,
+        "description": "An elderly, influential courtier with a serene, flat face and a habit of speaking with indifferent irony.",
+        "identity": "A pragmatic courtier who manages his social capital carefully.",
+        "core_traits": [
+          "Languid",
+          "Ironical",
+          "Patronizing",
+          "Serene",
+          "Appreciative of beauty",
+          "Socially dominant",
+          "Reluctant",
+          "Chary of influence",
+          "Conscience-stricken"
+        ],
+        "current_goals": [
+          "Attend social functions",
+          "Maintain his status at court",
+          "Attend the ambassador’s entertainment",
+          "Maintain social connections",
+          "Leave the party for the ambassador's fete",
+          "Avoid overextending his political favors"
+        ],
+        "evolution_summary": "An elderly, influential courtier with a serene, flat face and a habit of speaking with indifferent irony.\nIntroduced as a seasoned courtier who navigates social circles with practiced indifference and refined manners.\nHis role as a father is introduced, showing him as part of a larger family unit within the Petersburg elite.\nHis pragmatic approach to social influence is highlighted, as is his susceptibility to guilt regarding past debts.",
+        "last_known_location": "The anteroom of Anna Pávlovna's house",
+        "importance_score": 0.0
+      },
+      "1b3b757c-1a83-443d-9b89-b768c0804f4b": {
+        "id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+        "canonical_name": "Hélène Kurágina",
+        "aliases": [
+          "Hélène"
+        ],
+        "first_appearance_chapter": 1,
+        "description": "The beautiful daughter of Prince Vasíli and a maid of honor.",
+        "identity": "The stunningly beautiful and socially poised daughter of Prince Vasíli.",
+        "core_traits": [
+          "Radiant",
+          "Stately",
+          "Unchanging smile",
+          "Physically imposing beauty"
+        ],
+        "current_goals": [
+          "Maintain her social position as a center of admiration"
+        ],
+        "evolution_summary": "The beautiful daughter of Prince Vasíli and a maid of honor.\nHélène is depicted as a masterpiece of social grace, moving with a 'victorious beauty' that commands the room's attention.",
+        "last_known_location": "Anna Pávlovna's drawing room",
+        "importance_score": 0.0
+      },
+      "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+        "id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+        "canonical_name": "Princess Lise Bolkónskaya",
+        "aliases": [
+          "Lise",
+          "the little princess",
+          "the little Princess Bolkónskaya",
+          "The princess"
+        ],
+        "first_appearance_chapter": 1,
+        "description": "The pregnant wife of Prince Bolkónski, highly charming and popular in society.",
+        "identity": "The pregnant, socially-dependent wife of Prince Andrew.",
+        "core_traits": [
+          "Smiling",
+          "Socially active",
+          "Cooperative in matchmaking",
+          "Petulant",
+          "Fearful",
+          "Querulous",
+          "Submissive"
+        ],
+        "current_goals": [
+          "Facilitate the match between Anatole and her sister-in-law",
+          "Enjoy the upcoming ball",
+          "Persuade Andrew not to leave her",
+          "Express her resentment at being sent to the country"
+        ],
+        "evolution_summary": "The pregnant wife of Prince Bolkónski, highly charming and popular in society.\nLise is shown to be an active participant in Anna Pávlovna's social engineering, contrasting with her husband's detachment.\nLise shifts from a charming socialite to a vulnerable, frightened wife who feels abandoned by her husband's lack of pity and his 'changed' attitude.",
+        "last_known_location": "Prince Andrew's study",
+        "importance_score": 0.0
+      },
+      "aac39302-17d1-4dfe-a248-92ca1e3e22a0": {
+        "id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+        "canonical_name": "Hippolyte Kurágin",
+        "aliases": [
+          "Hippolyte",
+          "Le charmant Hippolyte",
+          "Prince Hippolyte"
+        ],
+        "first_appearance_chapter": 1,
+        "description": "The son of Prince Vasíli.",
+        "identity": "A socially eccentric man who uses gravity to mask his lack of depth.",
+        "core_traits": [
+          "Ugly",
+          "Dull-witted",
+          "Self-confident in his stupidity",
+          "Awkward",
+          "Absurd",
+          "Eccentric"
+        ],
+        "current_goals": [
+          "Participate in the social circle",
+          "Attend to Princess Bolkónskaya",
+          "Entertain the little princess with heraldry"
+        ],
+        "evolution_summary": "The son of Prince Vasíli.\nHippolyte is introduced as a foil to his sister Hélène, possessing her features but none of her charm or intellect.\nHippolyte continues to act as a comic or absurd relief, tracing coats of arms on tables while serious political debates occur.",
+        "last_known_location": "Anna Pávlovna's drawing room",
+        "importance_score": 0.0
+      },
+      "42367a83-661b-44d3-9912-682f58053860": {
+        "id": "42367a83-661b-44d3-9912-682f58053860",
+        "canonical_name": "Pierre Bezúkhov",
+        "aliases": [
+          "Monsieur Pierre",
+          "Pierre"
+        ],
+        "first_appearance_chapter": 1,
+        "description": "Illegitimate son of Count Bezúkhov; socially awkward and observant.",
+        "identity": "A sensitive and socially awkward observer of high-society domestic life.",
+        "core_traits": [
+          "Observant",
+          "Natural",
+          "Socially clumsy",
+          "Intelligent",
+          "Affectionate",
+          "Rapturous",
+          "Politically radical",
+          "Argumentative",
+          "Idealistic",
+          "Defiant",
+          "Absent-minded",
+          "Ungainly",
+          "Good-natured",
+          "Indecisive",
+          "Highly empathetic",
+          "Easily agitated by conflict",
+          "Naïve"
+        ],
+        "current_goals": [
+          "Navigate his first appearance in society",
+          "Discuss intellectual topics like the Abbé Morio's scheme",
+          "Maintain his friendship with Prince Andrew",
+          "Navigate the 'great world' of society",
+          "Defend the ideals of the French Revolution",
+          "Justify Napoleon's actions to the Russian aristocracy",
+          "Decide between becoming a guardsman or a diplomatist",
+          "Maintain his friendship with Andrew",
+          "Avoid being caught in the middle of a marital dispute"
+        ],
+        "evolution_summary": "Illegitimate son of Count Bezúkhov; socially awkward and observant.\nIntroduced as a 'stout' and 'heavily built' young man whose naturalness and lack of artifice make him a disruptive force in the rigid salon environment.\nHis deep admiration for Prince Andrew is revealed, showing he has a loyal and emotional nature despite his social clumsiness.\nPierre transitions from being merely socially awkward to being a source of genuine political scandal in the salon by defending Napoleon's most controversial acts.\nPierre's physical clumsiness and social ineptitude are fully displayed, yet his essential 'kindly' nature earns him a reprieve from Anna Pávlovna.\nPierre's role as an 'outsider' is emphasized as he witnesses the private dysfunction of the Bolkónski marriage, showing his inability to handle emotional confrontation.",
+        "last_known_location": "Prince Andrew's study",
+        "importance_score": 0.0
+      },
+      "c7478c00-c2c0-46cb-8888-b9a0fc8bc2d9": {
+        "id": "c7478c00-c2c0-46cb-8888-b9a0fc8bc2d9",
+        "canonical_name": "Abbé Morio",
+        "aliases": [
+          "The Abbé"
+        ],
+        "first_appearance_chapter": 1,
+        "description": "A man with a scheme for perpetual peace.",
+        "identity": "A man with a scheme for perpetual peace.",
+        "core_traits": [],
+        "current_goals": [],
+        "evolution_summary": "A man with a scheme for perpetual peace.",
+        "importance_score": 0.0
+      },
+      "36114f3f-d6fe-4530-9cd2-072ec87436dc": {
+        "id": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+        "canonical_name": "Vicomte de Mortemart",
+        "aliases": [
+          "the vicomte",
+          "Mortemart"
+        ],
+        "first_appearance_chapter": 2,
+        "description": "A French emigrant and storyteller at Anna Pavlovna's soirée, regarded as a social 'morsel' by the hostess.",
+        "identity": "A French emigrant and storyteller at Anna Pavlovna's soirée, regarded as a social 'morsel' by the hostess.",
+        "core_traits": [],
+        "current_goals": [],
+        "evolution_summary": "A French emigrant and storyteller at Anna Pavlovna's soirée, regarded as a social 'morsel' by the hostess.",
+        "importance_score": 0.0
+      },
+      "4c270c64-9fbc-4702-aef6-76da440daf4e": {
+        "id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+        "canonical_name": "Prince Andrew Bolkónski",
+        "aliases": [
+          "Andrew",
+          "André",
+          "Bolkónski",
+          "Prince Andrew"
+        ],
+        "first_appearance_chapter": 3,
+        "description": "A disillusioned aristocrat and husband to Lise Bolkónskaya, departing for the war against Napoleon.",
+        "identity": "A disillusioned aristocrat and soldier who is emotionally detached from his domestic life.",
+        "core_traits": [
+          "Weary",
+          "Bored",
+          "Handsome",
+          "Intellectually superior",
+          "Cynical",
+          "Sarcastic",
+          "Logical",
+          "Provocative",
+          "Cold toward society",
+          "Affectionate toward Pierre",
+          "Disdainful of social games",
+          "Frigidly polite",
+          "Impatient",
+          "Egotistical (perceived)",
+          "Authoritative"
+        ],
+        "current_goals": [
+          "Leave for the war to escape the tedium of Petersburg society",
+          "Serve as aide-de-camp to General Kutúzov",
+          "Challenge the Vicomte's royalist rhetoric",
+          "Support Pierre's logical arguments",
+          "Prepare for his departure to war",
+          "Guide Pierre toward a career decision",
+          "Escape the domestic sphere for the war",
+          "Maintain social decorum despite marital strife"
+        ],
+        "evolution_summary": "A disillusioned aristocrat and husband to Lise Bolkónskaya, departing for the war against Napoleon.\nIntroduced as a man deeply bored by his social environment and his wife, seeking purpose in military service.\nAndrew shows a willingness to support Pierre's unpopular views, highlighting his disdain for the superficiality of the other guests.\nAndrew's duality is shown: he is cold and 'disagreeable' to Hippolyte but 'gentle and affectionate' toward Pierre.\nAndrew's boredom with society is revealed to extend to his marriage; he treats his wife with a coldness that borders on cruelty, prioritizing his military ambitions over her emotional needs.",
+        "last_known_location": "Prince Andrew's study",
+        "importance_score": 0.0
+      },
+      "994186aa-8b48-4928-ab04-7b509d637a53": {
+        "id": "994186aa-8b48-4928-ab04-7b509d637a53",
+        "canonical_name": "Princess Anna Mikháylovna Drubetskáya",
+        "aliases": [
+          "Princess Drubetskáya"
+        ],
+        "first_appearance_chapter": 3,
+        "description": "A poor but well-born woman dedicated to advancing her son's career through social influence.",
+        "identity": "A poor but well-born woman dedicated to advancing her son's career through social influence.",
+        "core_traits": [],
+        "current_goals": [],
+        "evolution_summary": "A poor but well-born woman dedicated to advancing her son's career through social influence.",
+        "importance_score": 0.0
+      },
+      "a01b82de-7c90-4d20-9948-3d6b0999d7ac": {
+        "id": "a01b82de-7c90-4d20-9948-3d6b0999d7ac",
+        "canonical_name": "Borís Drubetskóy",
+        "aliases": [
+          "Borís"
+        ],
+        "first_appearance_chapter": 3,
+        "description": "The son of Princess Drubetskáya, for whom she is seeking a transfer to the Guards.",
+        "identity": "The son of Princess Drubetskáya, for whom she is seeking a transfer to the Guards.",
+        "core_traits": [],
+        "current_goals": [],
+        "evolution_summary": "The son of Princess Drubetskáya, for whom she is seeking a transfer to the Guards.",
+        "importance_score": 0.0
+      },
+      "214e601f-fce1-427d-9d54-fd55e64b518b": {
+        "id": "214e601f-fce1-427d-9d54-fd55e64b518b",
+        "canonical_name": "Anatole Kurágin",
+        "aliases": [
+          "Anatole"
+        ],
+        "first_appearance_chapter": 5,
+        "description": "The son of Prince Vasíli, proposed as a suitor for Prince Andrew's sister.",
+        "identity": "The son of Prince Vasíli, proposed as a suitor for Prince Andrew's sister.",
+        "core_traits": [],
+        "current_goals": [],
+        "evolution_summary": "The son of Prince Vasíli, proposed as a suitor for Prince Andrew's sister.",
+        "importance_score": 0.0
+      }
+    },
+    "alias_index": {
+      "anna pávlovna schérer": "05d36871-2501-4fad-95b8-b375384f7650",
+      "annette schérer": "05d36871-2501-4fad-95b8-b375384f7650",
+      "prince vasíli kurágin": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+      "prince vasíli": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+      "hélène kurágina": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+      "hélène": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+      "princess lise bolkónskaya": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+      "lise": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+      "the little princess": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+      "hippolyte kurágin": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+      "hippolyte": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+      "pierre bezúkhov": "42367a83-661b-44d3-9912-682f58053860",
+      "monsieur pierre": "42367a83-661b-44d3-9912-682f58053860",
+      "abbé morio": "c7478c00-c2c0-46cb-8888-b9a0fc8bc2d9",
+      "the abbé": "c7478c00-c2c0-46cb-8888-b9a0fc8bc2d9",
+      "annette": "05d36871-2501-4fad-95b8-b375384f7650",
+      "vicomte de mortemart": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+      "the vicomte": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+      "mortemart": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+      "the little princess bolkónskaya": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+      "le charmant hippolyte": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+      "prince andrew bolkónski": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+      "andrew": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+      "andré": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+      "bolkónski": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+      "princess anna mikháylovna drubetskáya": "994186aa-8b48-4928-ab04-7b509d637a53",
+      "princess drubetskáya": "994186aa-8b48-4928-ab04-7b509d637a53",
+      "borís drubetskóy": "a01b82de-7c90-4d20-9948-3d6b0999d7ac",
+      "borís": "a01b82de-7c90-4d20-9948-3d6b0999d7ac",
+      "anna pávlovna": "05d36871-2501-4fad-95b8-b375384f7650",
+      "prince andrew": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+      "prince hippolyte": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+      "pierre": "42367a83-661b-44d3-9912-682f58053860",
+      "anatole kurágin": "214e601f-fce1-427d-9d54-fd55e64b518b",
+      "anatole": "214e601f-fce1-427d-9d54-fd55e64b518b",
+      "the princess": "88cbe937-5f37-4903-91c1-c6821b89b5d8"
+    },
+    "relationships": {
+      "05d36871-2501-4fad-95b8-b375384f7650": {
+        "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71": {
+          "history_id": "b5255f38-1f99-4eb0-a7c2-690073cf7e31",
+          "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "interactions": [
+            {
+              "interaction_id": "c2b2fcdb-5a9f-4dee-8da0-62c19aeabb8f",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "relation_type": "Social Peers / Close Acquaintances",
+              "reasoning": "They interact with the familiarity of long-time social acquaintances, though their temperaments differ.",
+              "context": "Prince Vasíli is the first guest to arrive at Anna's reception.",
+              "evidence": {
+                "quote": "I will have nothing more to do with you and you are no longer my friend, no longer my ‘faithful slave,’ as you call yourself!",
+                "chapter_index": 0,
+                "chapter_title": "CHAPTER I"
+              },
+              "extracted_at": "2026-02-01T15:55:58.325073",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes the social dynamic and political tension that will drive the evening's conversations."
+            }
+          ]
+        },
+        "42367a83-661b-44d3-9912-682f58053860": {
+          "history_id": "85cc2bd8-53b4-4dc9-8a75-a970f5cade7c",
+          "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+          "interactions": [
+            {
+              "interaction_id": "e0abde29-4c98-4f7e-8e20-6a2c1c9f1857",
+              "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+              "character_b_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "relation_type": "Social Antagonism",
+              "reasoning": "Pierre's radical political views cause Anna Pávlovna extreme distress and social embarrassment.",
+              "context": "Pierre defends the execution of the Duc d’Enghien and Napoleon's rise to power.",
+              "evidence": {
+                "quote": "“Dieu! Mon Dieu!” muttered Anna Pávlovna in a terrified whisper.",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": true,
+              "resolved_in_chapter": 5,
+              "causal_reasoning": "Pierre's refusal to adhere to salon etiquette establishes him as a disruptive element in Anna's circle."
+            },
+            {
+              "interaction_id": "6e2551d4-5bb4-47e9-90e9-cd52d648de23",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Conditional Forgiveness",
+              "reasoning": "Anna Pávlovna forgives his social blunders on the condition that he changes his radical opinions.",
+              "context": "Pierre is leaving the party after his controversial defense of Napoleon.",
+              "evidence": {
+                "quote": "“I hope to see you again, but I also hope you will change your opinions, my dear Monsieur Pierre.”",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "resolves_interaction_id": "e0abde29-4c98-4f7e-8e20-6a2c1c9f1857",
+              "causal_reasoning": "This interaction softens the immediate social antagonism from Chapter 5, moving it toward a mentor-pupil or gatekeeper-outcast dynamic."
+            }
+          ]
+        },
+        "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+          "history_id": "6262e0d0-d2c8-45ab-9c4f-533f236583a6",
+          "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "interactions": [
+            {
+              "interaction_id": "613a1530-8015-45ed-9dab-3b8ebddea650",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Matchmaking Conspirators",
+              "reasoning": "They are secretly coordinating a marriage between Anatole Kurágin and Andrew's sister.",
+              "context": "A low-toned conversation in the hall during departure.",
+              "evidence": {
+                "quote": "Anna Pávlovna had already managed to speak to Lise about the match she contemplated between Anatole and the little princess’ sister-in-law.",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "causal_reasoning": "Initiates a major subplot regarding the Kurágin and Bolkónski families."
+            }
+          ]
+        }
+      },
+      "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71": {
+        "05d36871-2501-4fad-95b8-b375384f7650": {
+          "history_id": "d30434ce-4fae-4915-b364-1d7d2e1ca2c3",
+          "character_a_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "character_b_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "interactions": [
+            {
+              "interaction_id": "c2b2fcdb-5a9f-4dee-8da0-62c19aeabb8f",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "relation_type": "Social Peers / Close Acquaintances",
+              "reasoning": "They interact with the familiarity of long-time social acquaintances, though their temperaments differ.",
+              "context": "Prince Vasíli is the first guest to arrive at Anna's reception.",
+              "evidence": {
+                "quote": "I will have nothing more to do with you and you are no longer my friend, no longer my ‘faithful slave,’ as you call yourself!",
+                "chapter_index": 0,
+                "chapter_title": "CHAPTER I"
+              },
+              "extracted_at": "2026-02-01T15:55:58.325073",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes the social dynamic and political tension that will drive the evening's conversations."
+            }
+          ]
+        },
+        "1b3b757c-1a83-443d-9b89-b768c0804f4b": {
+          "history_id": "88b8bf2b-1303-40fc-bfd5-4449b0248eeb",
+          "character_a_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "character_b_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "interactions": [
+            {
+              "interaction_id": "5db963c3-5200-48f1-a43a-1256e4f4faf5",
+              "character_a_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "character_b_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+              "relation_type": "Family",
+              "reasoning": "Hélène is identified as Prince Vasíli’s daughter.",
+              "context": "Hélène arrives to take her father to another event.",
+              "evidence": {
+                "quote": "Prince Vasíli’s daughter, the beautiful Hélène, came to take her father to the ambassador’s entertainment",
+                "chapter_index": 1,
+                "chapter_title": "CHAPTER II"
+              },
+              "extracted_at": "2026-02-01T15:56:12.282162",
+              "is_causal_node": false
+            }
+          ]
+        },
+        "994186aa-8b48-4928-ab04-7b509d637a53": {
+          "history_id": "692470fc-438e-4009-bce4-9eea8981dfd1",
+          "character_a_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "character_b_id": "994186aa-8b48-4928-ab04-7b509d637a53",
+          "interactions": [
+            {
+              "interaction_id": "d0b34159-ca8b-4b34-9cda-217661bd8244",
+              "character_a_id": "994186aa-8b48-4928-ab04-7b509d637a53",
+              "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "relation_type": "Supplicant and Reluctant Benefactor",
+              "reasoning": "Drubetskáya uses her father's past help to Vasíli to guilt him into helping her son.",
+              "context": "Drubetskáya corners Vasíli in the anteroom to ask for a military appointment for Borís.",
+              "evidence": {
+                "quote": "I have never yet asked you for anything and I never will again, nor have I ever reminded you of my father’s friendship for you; but now I entreat you for God’s sake to do this for my son",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "causal_reasoning": "Creates a social debt that Prince Vasíli feels compelled to honor despite his desire to economize his influence."
+            }
+          ]
+        }
+      },
+      "1b3b757c-1a83-443d-9b89-b768c0804f4b": {
+        "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71": {
+          "history_id": "bac016cb-d416-49d1-b712-ff139c05abac",
+          "character_a_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "interactions": [
+            {
+              "interaction_id": "5db963c3-5200-48f1-a43a-1256e4f4faf5",
+              "character_a_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "character_b_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+              "relation_type": "Family",
+              "reasoning": "Hélène is identified as Prince Vasíli’s daughter.",
+              "context": "Hélène arrives to take her father to another event.",
+              "evidence": {
+                "quote": "Prince Vasíli’s daughter, the beautiful Hélène, came to take her father to the ambassador’s entertainment",
+                "chapter_index": 1,
+                "chapter_title": "CHAPTER II"
+              },
+              "extracted_at": "2026-02-01T15:56:12.282162",
+              "is_causal_node": false
+            }
+          ]
+        },
+        "aac39302-17d1-4dfe-a248-92ca1e3e22a0": {
+          "history_id": "98f1f7fc-85af-4efc-8b4f-71ebc2042d22",
+          "character_a_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "character_b_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "interactions": [
+            {
+              "interaction_id": "48e50c15-94be-49c5-9943-5c79bac84abe",
+              "character_a_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+              "character_b_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+              "relation_type": "Siblings",
+              "reasoning": "They are identified as brother and sister, sharing a physical resemblance but opposite temperaments.",
+              "context": "Hippolyte is introduced by his resemblance to his beautiful sister.",
+              "evidence": {
+                "quote": "Le charmant Hippolyte was surprising by his extraordinary resemblance to his beautiful sister, but yet more by the fact that in spite of this resemblance he was exceedingly ugly.",
+                "chapter_index": 2,
+                "chapter_title": "CHAPTER III"
+              },
+              "extracted_at": "2026-02-01T15:56:26.781891",
+              "is_causal_node": false
+            }
+          ]
+        }
+      },
+      "aac39302-17d1-4dfe-a248-92ca1e3e22a0": {
+        "1b3b757c-1a83-443d-9b89-b768c0804f4b": {
+          "history_id": "c573d54c-0900-447c-bfb8-7906cece4cd8",
+          "character_a_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "character_b_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "interactions": [
+            {
+              "interaction_id": "48e50c15-94be-49c5-9943-5c79bac84abe",
+              "character_a_id": "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+              "character_b_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+              "relation_type": "Siblings",
+              "reasoning": "They are identified as brother and sister, sharing a physical resemblance but opposite temperaments.",
+              "context": "Hippolyte is introduced by his resemblance to his beautiful sister.",
+              "evidence": {
+                "quote": "Le charmant Hippolyte was surprising by his extraordinary resemblance to his beautiful sister, but yet more by the fact that in spite of this resemblance he was exceedingly ugly.",
+                "chapter_index": 2,
+                "chapter_title": "CHAPTER III"
+              },
+              "extracted_at": "2026-02-01T15:56:26.781891",
+              "is_causal_node": false
+            }
+          ]
+        },
+        "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+          "history_id": "5ec102d9-6f32-458d-93eb-0c0a8e2496c6",
+          "character_a_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "interactions": [
+            {
+              "interaction_id": "96aa808e-bea4-432a-8872-89b60ddd82ca",
+              "character_a_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Inappropriate Flirtation",
+              "reasoning": "Hippolyte lingers while wrapping her shawl and whispers to her, which the Vicomte later mocks.",
+              "context": "The guests are departing in the hall.",
+              "evidence": {
+                "quote": "after the shawl had been adjusted he kept his arm around her for a long time, as though embracing her.",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes Hippolyte's lack of boundaries and potential future friction with Andrew."
+            }
+          ]
+        }
+      },
+      "4c270c64-9fbc-4702-aef6-76da440daf4e": {
+        "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+          "history_id": "88d8bba4-6af1-4d04-b0dd-7875e8791bb3",
+          "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "interactions": [
+            {
+              "interaction_id": "ba70189b-8c5d-4e87-bb0a-fee0a085e350",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Strained Marriage",
+              "reasoning": "Andrew shows visible boredom and annoyance toward his wife, while she treats him with the same coquettishness she uses for strangers.",
+              "context": "Andrew enters the room and reacts to his wife's presence with a grimace.",
+              "evidence": {
+                "quote": "And among all these faces that he found so tedious, none seemed to bore him so much as that of his pretty wife.",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "resolved_in_chapter": 6,
+              "causal_reasoning": "Establishes the domestic tension that motivates Andrew's desire to leave for war."
+            },
+            {
+              "interaction_id": "83100d1b-dbd5-4f22-970e-921ee9d079a4",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Estranged Marriage",
+              "reasoning": "Andrew treats his wife with a 'frigid politeness' and 'dry' commands, while she accuses him of being an 'egotist' who has 'changed' toward her.",
+              "context": "Lise confronts Andrew about his decision to go to war and leave her in the country.",
+              "evidence": {
+                "quote": "“I have long wanted to ask you, Andrew, why you have changed so to me? What have I done to you? You are going to the war and have no pity for me. Why is it?”",
+                "chapter_index": 6,
+                "chapter_title": "CHAPTER VII"
+              },
+              "extracted_at": "2026-02-01T15:57:26.363462",
+              "is_causal_node": true,
+              "resolves_interaction_id": "ba70189b-8c5d-4e87-bb0a-fee0a085e350",
+              "causal_reasoning": "This interaction escalates the 'Strained Marriage' node into a more explicit conflict, showing the emotional toll of Andrew's detachment."
+            }
+          ]
+        },
+        "42367a83-661b-44d3-9912-682f58053860": {
+          "history_id": "12566796-a9d4-4d8e-8118-257a1ab6b731",
+          "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+          "interactions": [
+            {
+              "interaction_id": "e80ce92b-4d70-4072-ab5f-485fffa8c4f6",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Close Friends",
+              "reasoning": "Despite Andrew's general boredom with everyone else, he shows genuine warmth and a smile to Pierre.",
+              "context": "Pierre approaches Andrew with affection, and Andrew responds with a kind smile and a hand press.",
+              "evidence": {
+                "quote": "but when he saw Pierre’s beaming face he gave him an unexpectedly kind and pleasant smile.",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes Pierre's primary social anchor and Andrew's only positive connection in the room."
+            },
+            {
+              "interaction_id": "eaed64c9-38ed-483d-bbb0-5fb0efec0492",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Intellectual Allies",
+              "reasoning": "Andrew supports Pierre's points against the Vicomte, despite the social awkwardness Pierre causes.",
+              "context": "Andrew agrees with Pierre that returning to the old regime in France is difficult.",
+              "evidence": {
+                "quote": "“That is doubtful,” said Prince Andrew. “Monsieur le Vicomte quite rightly supposes that matters have already gone too far.”",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": false
+            }
+          ]
+        },
+        "36114f3f-d6fe-4530-9cd2-072ec87436dc": {
+          "history_id": "9b74635c-45fc-4656-a902-22a37ad6d5df",
+          "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "character_b_id": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+          "interactions": [
+            {
+              "interaction_id": "4a7aeffb-c7af-40f2-a71c-44bcea105dda",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+              "relation_type": "Intellectual Rivalry",
+              "reasoning": "Andrew deliberately challenges the Vicomte's royalist perspective with sarcastic remarks.",
+              "context": "The group discusses the restoration of the French monarchy.",
+              "evidence": {
+                "quote": "It was evident that he did not like the vicomte and was aiming his remarks at him, though without looking at him.",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": false
+            }
+          ]
+        }
+      },
+      "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+        "4c270c64-9fbc-4702-aef6-76da440daf4e": {
+          "history_id": "32da329a-f78a-4104-877b-86d1d0dcec78",
+          "character_a_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "character_b_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "interactions": [
+            {
+              "interaction_id": "ba70189b-8c5d-4e87-bb0a-fee0a085e350",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Strained Marriage",
+              "reasoning": "Andrew shows visible boredom and annoyance toward his wife, while she treats him with the same coquettishness she uses for strangers.",
+              "context": "Andrew enters the room and reacts to his wife's presence with a grimace.",
+              "evidence": {
+                "quote": "And among all these faces that he found so tedious, none seemed to bore him so much as that of his pretty wife.",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "resolved_in_chapter": 6,
+              "causal_reasoning": "Establishes the domestic tension that motivates Andrew's desire to leave for war."
+            },
+            {
+              "interaction_id": "83100d1b-dbd5-4f22-970e-921ee9d079a4",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Estranged Marriage",
+              "reasoning": "Andrew treats his wife with a 'frigid politeness' and 'dry' commands, while she accuses him of being an 'egotist' who has 'changed' toward her.",
+              "context": "Lise confronts Andrew about his decision to go to war and leave her in the country.",
+              "evidence": {
+                "quote": "“I have long wanted to ask you, Andrew, why you have changed so to me? What have I done to you? You are going to the war and have no pity for me. Why is it?”",
+                "chapter_index": 6,
+                "chapter_title": "CHAPTER VII"
+              },
+              "extracted_at": "2026-02-01T15:57:26.363462",
+              "is_causal_node": true,
+              "resolves_interaction_id": "ba70189b-8c5d-4e87-bb0a-fee0a085e350",
+              "causal_reasoning": "This interaction escalates the 'Strained Marriage' node into a more explicit conflict, showing the emotional toll of Andrew's detachment."
+            }
+          ]
+        },
+        "aac39302-17d1-4dfe-a248-92ca1e3e22a0": {
+          "history_id": "6fd06842-e406-466a-a780-6a1712f5a76d",
+          "character_a_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "character_b_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "interactions": [
+            {
+              "interaction_id": "96aa808e-bea4-432a-8872-89b60ddd82ca",
+              "character_a_id": "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Inappropriate Flirtation",
+              "reasoning": "Hippolyte lingers while wrapping her shawl and whispers to her, which the Vicomte later mocks.",
+              "context": "The guests are departing in the hall.",
+              "evidence": {
+                "quote": "after the shawl had been adjusted he kept his arm around her for a long time, as though embracing her.",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes Hippolyte's lack of boundaries and potential future friction with Andrew."
+            }
+          ]
+        },
+        "05d36871-2501-4fad-95b8-b375384f7650": {
+          "history_id": "768c4958-f0a0-49ec-b662-cb62ed8edf91",
+          "character_a_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "character_b_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "interactions": [
+            {
+              "interaction_id": "613a1530-8015-45ed-9dab-3b8ebddea650",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Matchmaking Conspirators",
+              "reasoning": "They are secretly coordinating a marriage between Anatole Kurágin and Andrew's sister.",
+              "context": "A low-toned conversation in the hall during departure.",
+              "evidence": {
+                "quote": "Anna Pávlovna had already managed to speak to Lise about the match she contemplated between Anatole and the little princess’ sister-in-law.",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "causal_reasoning": "Initiates a major subplot regarding the Kurágin and Bolkónski families."
+            }
+          ]
+        },
+        "42367a83-661b-44d3-9912-682f58053860": {
+          "history_id": "e060e0a1-c53f-4f10-b75f-6edf69c0b599",
+          "character_a_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+          "interactions": [
+            {
+              "interaction_id": "2ab51d0a-aa3c-4ec8-bd62-5792ec44ef93",
+              "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Awkward Familiarity",
+              "reasoning": "Pierre is treated as almost a family member, yet he is deeply uncomfortable witnessing their domestic dispute.",
+              "context": "Pierre attempts to comfort Lise during her crying fit but feels out of place.",
+              "evidence": {
+                "quote": "Pierre, who had been growing more and more agitated as he listened to all this, rose and approached the princess. He seemed unable to bear the sight of tears and was ready to cry himself.",
+                "chapter_index": 6,
+                "chapter_title": "CHAPTER VII"
+              },
+              "extracted_at": "2026-02-01T15:57:26.363462",
+              "is_causal_node": false
+            }
+          ]
+        }
+      },
+      "42367a83-661b-44d3-9912-682f58053860": {
+        "4c270c64-9fbc-4702-aef6-76da440daf4e": {
+          "history_id": "5d74b5f0-29b9-47c3-8929-04723fda68c1",
+          "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+          "character_b_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "interactions": [
+            {
+              "interaction_id": "e80ce92b-4d70-4072-ab5f-485fffa8c4f6",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Close Friends",
+              "reasoning": "Despite Andrew's general boredom with everyone else, he shows genuine warmth and a smile to Pierre.",
+              "context": "Pierre approaches Andrew with affection, and Andrew responds with a kind smile and a hand press.",
+              "evidence": {
+                "quote": "but when he saw Pierre’s beaming face he gave him an unexpectedly kind and pleasant smile.",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "causal_reasoning": "Establishes Pierre's primary social anchor and Andrew's only positive connection in the room."
+            },
+            {
+              "interaction_id": "eaed64c9-38ed-483d-bbb0-5fb0efec0492",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Intellectual Allies",
+              "reasoning": "Andrew supports Pierre's points against the Vicomte, despite the social awkwardness Pierre causes.",
+              "context": "Andrew agrees with Pierre that returning to the old regime in France is difficult.",
+              "evidence": {
+                "quote": "“That is doubtful,” said Prince Andrew. “Monsieur le Vicomte quite rightly supposes that matters have already gone too far.”",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": false
+            }
+          ]
+        },
+        "05d36871-2501-4fad-95b8-b375384f7650": {
+          "history_id": "f66db337-c123-49bc-98b8-28595d63b0eb",
+          "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+          "character_b_id": "05d36871-2501-4fad-95b8-b375384f7650",
+          "interactions": [
+            {
+              "interaction_id": "e0abde29-4c98-4f7e-8e20-6a2c1c9f1857",
+              "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+              "character_b_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "relation_type": "Social Antagonism",
+              "reasoning": "Pierre's radical political views cause Anna Pávlovna extreme distress and social embarrassment.",
+              "context": "Pierre defends the execution of the Duc d’Enghien and Napoleon's rise to power.",
+              "evidence": {
+                "quote": "“Dieu! Mon Dieu!” muttered Anna Pávlovna in a terrified whisper.",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": true,
+              "resolved_in_chapter": 5,
+              "causal_reasoning": "Pierre's refusal to adhere to salon etiquette establishes him as a disruptive element in Anna's circle."
+            },
+            {
+              "interaction_id": "6e2551d4-5bb4-47e9-90e9-cd52d648de23",
+              "character_a_id": "05d36871-2501-4fad-95b8-b375384f7650",
+              "character_b_id": "42367a83-661b-44d3-9912-682f58053860",
+              "relation_type": "Conditional Forgiveness",
+              "reasoning": "Anna Pávlovna forgives his social blunders on the condition that he changes his radical opinions.",
+              "context": "Pierre is leaving the party after his controversial defense of Napoleon.",
+              "evidence": {
+                "quote": "“I hope to see you again, but I also hope you will change your opinions, my dear Monsieur Pierre.”",
+                "chapter_index": 5,
+                "chapter_title": "CHAPTER VI"
+              },
+              "extracted_at": "2026-02-01T15:57:12.824274",
+              "is_causal_node": true,
+              "resolves_interaction_id": "e0abde29-4c98-4f7e-8e20-6a2c1c9f1857",
+              "causal_reasoning": "This interaction softens the immediate social antagonism from Chapter 5, moving it toward a mentor-pupil or gatekeeper-outcast dynamic."
+            }
+          ]
+        },
+        "88cbe937-5f37-4903-91c1-c6821b89b5d8": {
+          "history_id": "c4c49742-d169-419e-acf0-48c40273b5db",
+          "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+          "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "interactions": [
+            {
+              "interaction_id": "2ab51d0a-aa3c-4ec8-bd62-5792ec44ef93",
+              "character_a_id": "42367a83-661b-44d3-9912-682f58053860",
+              "character_b_id": "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+              "relation_type": "Awkward Familiarity",
+              "reasoning": "Pierre is treated as almost a family member, yet he is deeply uncomfortable witnessing their domestic dispute.",
+              "context": "Pierre attempts to comfort Lise during her crying fit but feels out of place.",
+              "evidence": {
+                "quote": "Pierre, who had been growing more and more agitated as he listened to all this, rose and approached the princess. He seemed unable to bear the sight of tears and was ready to cry himself.",
+                "chapter_index": 6,
+                "chapter_title": "CHAPTER VII"
+              },
+              "extracted_at": "2026-02-01T15:57:26.363462",
+              "is_causal_node": false
+            }
+          ]
+        }
+      },
+      "994186aa-8b48-4928-ab04-7b509d637a53": {
+        "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71": {
+          "history_id": "f8fa31f3-1416-47d1-a807-84a9fe318c42",
+          "character_a_id": "994186aa-8b48-4928-ab04-7b509d637a53",
+          "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "interactions": [
+            {
+              "interaction_id": "d0b34159-ca8b-4b34-9cda-217661bd8244",
+              "character_a_id": "994186aa-8b48-4928-ab04-7b509d637a53",
+              "character_b_id": "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+              "relation_type": "Supplicant and Reluctant Benefactor",
+              "reasoning": "Drubetskáya uses her father's past help to Vasíli to guilt him into helping her son.",
+              "context": "Drubetskáya corners Vasíli in the anteroom to ask for a military appointment for Borís.",
+              "evidence": {
+                "quote": "I have never yet asked you for anything and I never will again, nor have I ever reminded you of my father’s friendship for you; but now I entreat you for God’s sake to do this for my son",
+                "chapter_index": 3,
+                "chapter_title": "CHAPTER IV"
+              },
+              "extracted_at": "2026-02-01T15:56:42.760170",
+              "is_causal_node": true,
+              "causal_reasoning": "Creates a social debt that Prince Vasíli feels compelled to honor despite his desire to economize his influence."
+            }
+          ]
+        }
+      },
+      "36114f3f-d6fe-4530-9cd2-072ec87436dc": {
+        "4c270c64-9fbc-4702-aef6-76da440daf4e": {
+          "history_id": "93b417a8-18f0-4e73-8f60-69a041cf93cc",
+          "character_a_id": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+          "character_b_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "interactions": [
+            {
+              "interaction_id": "4a7aeffb-c7af-40f2-a71c-44bcea105dda",
+              "character_a_id": "4c270c64-9fbc-4702-aef6-76da440daf4e",
+              "character_b_id": "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+              "relation_type": "Intellectual Rivalry",
+              "reasoning": "Andrew deliberately challenges the Vicomte's royalist perspective with sarcastic remarks.",
+              "context": "The group discusses the restoration of the French monarchy.",
+              "evidence": {
+                "quote": "It was evident that he did not like the vicomte and was aiming his remarks at him, though without looking at him.",
+                "chapter_index": 4,
+                "chapter_title": "CHAPTER V"
+              },
+              "extracted_at": "2026-02-01T15:56:58.517194",
+              "is_causal_node": false
+            }
+          ]
+        }
+      }
+    },
+    "event_chronicle": [
+      {
+        "event_id": "baab8fd7-16de-4b7d-a913-33562e4d9ff6",
+        "chapter_index": 0,
+        "chapter_title": "CHAPTER I",
+        "description": "Anna Pávlovna Schérer hosts a high-society reception in St. Petersburg.",
+        "involved_characters": [
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71"
+        ],
+        "evidence_quote": "It was in July, 1805, and the speaker was the well-known Anna Pávlovna Schérer... greeting Prince Vasíli Kurágin, a man of high rank and importance, who was the first to arrive at her reception.",
+        "significance": "major"
+      },
+      {
+        "event_id": "5982bdc3-0137-458a-a906-4da13d678e7c",
+        "chapter_index": 0,
+        "chapter_title": "CHAPTER I",
+        "description": "Anna Pávlovna expresses her intense hatred for Napoleon and her faith in Emperor Alexander.",
+        "involved_characters": [
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71"
+        ],
+        "evidence_quote": "if you still try to defend the infamies and horrors perpetrated by that Antichrist—I really believe he is Antichrist—I will have nothing more to do with you",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "429ec8b1-f034-43c7-b82e-346fbe7209bf",
+        "chapter_index": 1,
+        "chapter_title": "CHAPTER II",
+        "description": "Pierre Bezúkhov arrives at the reception, causing social discomfort.",
+        "involved_characters": [],
+        "evidence_quote": "Anna Pávlovna’s alarm was justified, for Pierre turned away from the aunt without waiting to hear her speech about Her Majesty’s health.",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "f00cee8c-aff9-44ac-b12d-9c6ec4cdb6bd",
+        "chapter_index": 1,
+        "chapter_title": "CHAPTER II",
+        "description": "Princess Bolkónskaya discusses her husband's departure for the war.",
+        "involved_characters": [
+          "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71"
+        ],
+        "evidence_quote": "“You know,” said the princess... “my husband is deserting me? He is going to get himself killed. Tell me what this wretched war is for?”",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "c24169af-20ca-4e23-a8db-3e829b4a9d93",
+        "chapter_index": 2,
+        "chapter_title": "CHAPTER III",
+        "description": "Anna Pávlovna gathers a group to hear the Vicomte de Mortemart's account of the Duc d’Enghien's death.",
+        "involved_characters": [
+          "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+          "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8"
+        ],
+        "evidence_quote": "Anna Pávlovna arranged a group round him, inviting everyone to listen to his tale.",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "7f0803c4-677e-429a-ab57-db2d4b483fbb",
+        "chapter_index": 2,
+        "chapter_title": "CHAPTER III",
+        "description": "Prince Hippolyte Kurágin is introduced to the circle, displaying his lack of wit and awkward social presence.",
+        "involved_characters": [
+          "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8"
+        ],
+        "evidence_quote": "His face on the contrary was dulled by imbecility and a constant expression of sullen self-confidence",
+        "significance": "minor"
+      },
+      {
+        "event_id": "f5a0222c-16c4-48fc-aa89-b0a7039551ea",
+        "chapter_index": 3,
+        "chapter_title": "CHAPTER IV",
+        "description": "Prince Andrew Bolkónski announces he is going to war as an aide-de-camp to General Kutúzov.",
+        "involved_characters": [
+          "4c270c64-9fbc-4702-aef6-76da440daf4e"
+        ],
+        "evidence_quote": "General Kutúzov... has been pleased to take me as an aide-de-camp....",
+        "significance": "major"
+      },
+      {
+        "event_id": "1e9c471a-9fe7-4277-8ec9-efb0921499cc",
+        "chapter_index": 3,
+        "chapter_title": "CHAPTER IV",
+        "description": "Princess Drubetskáya successfully pressures Prince Vasíli into promising to help her son Borís.",
+        "involved_characters": [
+          "994186aa-8b48-4928-ab04-7b509d637a53",
+          "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71",
+          "a01b82de-7c90-4d20-9948-3d6b0999d7ac"
+        ],
+        "evidence_quote": "But in Princess Drubetskáya’s case he felt, after her second appeal, something like qualms of conscience.",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "5892ae09-d144-4fd1-a939-95d09065ff47",
+        "chapter_index": 4,
+        "chapter_title": "CHAPTER V",
+        "description": "Pierre Bezúkhov publicly defends Napoleon's execution of the Duc d’Enghien as a political necessity.",
+        "involved_characters": [
+          "42367a83-661b-44d3-9912-682f58053860",
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "36114f3f-d6fe-4530-9cd2-072ec87436dc",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8"
+        ],
+        "evidence_quote": "“The execution of the Duc d’Enghien,” declared Monsieur Pierre, “was a political necessity, and it seems to me that Napoleon showed greatness of soul by not fearing to take on himself the whole responsibility of that deed.”",
+        "significance": "major"
+      },
+      {
+        "event_id": "99514ba7-63db-4ec7-a3d6-7c107f7225f3",
+        "chapter_index": 4,
+        "chapter_title": "CHAPTER V",
+        "description": "Anna Pávlovna attempts to silence Pierre by inviting him to another table, which he ignores.",
+        "involved_characters": [
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "42367a83-661b-44d3-9912-682f58053860"
+        ],
+        "evidence_quote": "“Won’t you come over to the other table?” suggested Anna Pávlovna. But Pierre continued his speech without heeding her.",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "cb15358b-0bf7-4a08-9d5b-88a26ca72f83",
+        "chapter_index": 5,
+        "chapter_title": "CHAPTER VI",
+        "description": "Anna Pávlovna and Lise Bolkónskaya agree to pursue a marriage match between Anatole Kurágin and Andrew's sister.",
+        "involved_characters": [
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "214e601f-fce1-427d-9d54-fd55e64b518b"
+        ],
+        "evidence_quote": "“I rely on you, my dear,” said Anna Pávlovna, also in a low tone. “Write to her and let me know how her father looks at the matter.”",
+        "significance": "major"
+      },
+      {
+        "event_id": "9a177333-c3c7-4435-91ae-3c6dd1b3da7c",
+        "chapter_index": 5,
+        "chapter_title": "CHAPTER VI",
+        "description": "Prince Andrew and Pierre leave the soiree together to continue their conversation at Andrew's home.",
+        "involved_characters": [
+          "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "42367a83-661b-44d3-9912-682f58053860"
+        ],
+        "evidence_quote": "“I am expecting you, Pierre,” said the same voice, but gently and affectionately.",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "db6bb774-105b-4e5f-aee8-0b26042d77fc",
+        "chapter_index": 6,
+        "chapter_title": "CHAPTER VII",
+        "description": "Lise Bolkónskaya confronts Prince Andrew about his coldness and his decision to leave her for the war.",
+        "involved_characters": [
+          "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "42367a83-661b-44d3-9912-682f58053860"
+        ],
+        "evidence_quote": "“Just for a whim of his own, goodness only knows why, he leaves me and locks me up alone in the country.”",
+        "significance": "moderate"
+      },
+      {
+        "event_id": "8fb638a8-c58e-4288-8d89-fc7d993be7f1",
+        "chapter_index": 6,
+        "chapter_title": "CHAPTER VII",
+        "description": "Lise reveals her pregnancy as a source of her fear, though she finds it 'indecorous' to speak of it directly before Pierre.",
+        "involved_characters": [
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "42367a83-661b-44d3-9912-682f58053860"
+        ],
+        "evidence_quote": "She paused as if she felt it indecorous to speak of her pregnancy before Pierre, though the gist of the matter lay in that.",
+        "significance": "moderate"
+      }
+    ],
+    "causal_links": [],
+    "chapter_summaries": [
+      {
+        "index": 0,
+        "title": "CHAPTER I",
+        "summary": "In July 1805, Anna Pávlovna Schérer, a maid of honor to the Empress, hosts a reception in St. Petersburg. She greets Prince Vasíli Kurágin with a passionate political tirade against Napoleon (Buonaparte) and the state of European politics. They discuss the impending war, the role of Emperor Alexander, and the arrival of guests including the Vicomte de Mortemart and Abbé Morio.",
+        "characters_introduced": [
+          "05d36871-2501-4fad-95b8-b375384f7650",
+          "1d1ea9ad-587d-4cc3-bbb7-d7888f42ae71"
+        ],
+        "events_count": 2,
+        "relationships_count": 1
+      },
+      {
+        "index": 1,
+        "title": "CHAPTER II",
+        "summary": "Anna Pávlovna’s reception continues as more members of Petersburg high society arrive, including Prince Vasíli’s children, Hélène and Hippolyte, and the pregnant Princess Bolkónskaya. The social atmosphere is defined by rigid etiquette, specifically the mandatory greeting of Anna's aunt. Pierre Bezúkhov, the illegitimate son of a dying grandee, makes a socially awkward entrance, causing anxiety for the hostess due to his lack of conformity to courtly manners.",
+        "characters_introduced": [
+          "1b3b757c-1a83-443d-9b89-b768c0804f4b",
+          "88cbe937-5f37-4903-91c1-c6821b89b5d8",
+          "aac39302-17d1-4dfe-a248-92ca1e3e22a0",
+          "42367a83-661b-44d3-9912-682f58053860",
+          "c7478c00-c2c0-46cb-8888-b9a0fc8bc2d9"
+        ],
+        "events_count": 2,
+        "relationships_count": 1
+      },
+      {
+        "index": 2,
+        "title": "CHAPTER III",
+        "summary": "Anna Pávlovna organizes her guests into three distinct groups to facilitate conversation. The primary focus is on the Vicomte de Mortemart, whom Anna 'serves up' as a storyteller to discuss the murder of the Duc d’Enghien. Hélène Kurágina and Lise Bolkónskaya join this circle, while Prince Hippolyte Kurágin is introduced as Hélène's physically similar but intellectually inferior brother.",
+        "characters_introduced": [
+          "36114f3f-d6fe-4530-9cd2-072ec87436dc"
+        ],
+        "events_count": 2,
+        "relationships_count": 1
+      },
+      {
+        "index": 3,
+        "title": "CHAPTER IV",
+        "summary": "Prince Andrew Bolkónski arrives at the soirée, displaying a weary and bored demeanor toward high society and his wife, Lise. He reveals he is departing for war as an aide-de-camp to General Kutúzov. Pierre Bezúkhov shows great affection for Andrew, and they agree to meet for supper. Meanwhile, Prince Vasíli and Hélène depart, but not before Princess Drubetskáya entreats Vasíli to use his influence to secure a military appointment for her son, Borís.",
+        "characters_introduced": [
+          "4c270c64-9fbc-4702-aef6-76da440daf4e",
+          "994186aa-8b48-4928-ab04-7b509d637a53",
+          "a01b82de-7c90-4d20-9948-3d6b0999d7ac"
+        ],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 4,
+        "title": "CHAPTER V",
+        "summary": "The conversation at Anna Pávlovna's soirée turns to Napoleon's recent actions in Italy and the execution of the Duc d’Enghien. Pierre Bezúkhov shocks the aristocratic guests by defending Napoleon's actions as political necessities for the general good, while Prince Andrew supports Pierre's logic despite his own cynical outlook. The hostess, Anna Pávlovna, attempts to steer the conversation away from Pierre's controversial and socially inappropriate defense of the Revolution.",
+        "characters_introduced": [],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 5,
+        "title": "CHAPTER VI",
+        "summary": "As the soiree concludes, Pierre's social awkwardness is highlighted, though Anna Pávlovna offers him a mild, conditional forgiveness. Prince Hippolyte flirtatiously attends to Princess Lise, much to the indifference of Prince Andrew. Anna Pávlovna and Lise finalize a plan to match Anatole Kurágin with Andrew's sister. The chapter ends with Pierre and Andrew arriving at Andrew's home, where they begin a private discussion about Pierre's future and the political ideas discussed at the party.",
+        "characters_introduced": [
+          "214e601f-fce1-427d-9d54-fd55e64b518b"
+        ],
+        "events_count": 2,
+        "relationships_count": 3
+      },
+      {
+        "index": 6,
+        "title": "CHAPTER VII",
+        "summary": "Prince Andrew, Pierre, and Princess Lise Bolkónskaya converse in Andrew's study. Lise expresses her fear and resentment regarding Andrew's departure for the war, accusing him of being an egotist and changing toward her. The interaction reveals a deep marital strain, with Andrew treating her with cold, formal politeness while Pierre watches with awkward discomfort. The chapter ends with Lise's emotional outburst subsiding into a piteous submission before she retires for the night.",
+        "characters_introduced": [],
+        "events_count": 2,
+        "relationships_count": 2
+      }
+    ],
+    "book_summaries": []
+  },
+  "procedural": {
+    "available_tools": [
+      "chapter_segmentation",
+      "chapter_extraction",
+      "html_report_generation"
+    ]
+  },
+  "resource": {
+    "llm_calls_made": 7,
+    "chapters_processed": 7
+  }
+}

@@ -64,6 +64,24 @@ class RelationshipInteraction(BaseModel):
         description="ISO timestamp when this entry was created",
     )
 
+    # FR-14: Causal relationship indexing
+    is_causal_node: bool = Field(
+        default=False,
+        description="True if this interaction is a persistent causal node",
+    )
+    resolved_in_chapter: Optional[int] = Field(
+        default=None,
+        description="Chapter index where this causal node was resolved",
+    )
+    resolves_interaction_id: Optional[str] = Field(
+        default=None,
+        description="If this interaction resolves a prior causal node, its ID",
+    )
+    causal_reasoning: Optional[str] = Field(
+        default=None,
+        description="Why this interaction is causally linked to a past event",
+    )
+
     # Cross-chapter causal links (FR-07)
     references_event_id: Optional[str] = Field(
         default=None,
@@ -125,6 +143,27 @@ class CharacterProfile(BaseModel):
     description: str = Field(
         default="",
         description="Brief description of the character",
+    )
+    # FR-12: Character dossier fields
+    identity: str = Field(
+        default="",
+        description="Concise identity summary for the character",
+    )
+    core_traits: List[str] = Field(
+        default_factory=list,
+        description="Stable traits that define the character",
+    )
+    current_goals: List[str] = Field(
+        default_factory=list,
+        description="Active goals or motivations",
+    )
+    evolution_summary: str = Field(
+        default="",
+        description="Cumulative summary of the character's evolution",
+    )
+    last_known_location: Optional[str] = Field(
+        default=None,
+        description="Most recent known location of the character",
     )
     importance_score: float = Field(
         default=0.0,
@@ -355,6 +394,14 @@ class EpisodicMemory(BaseModel):
     )
 
 
+class BookSummary(BaseModel):
+    """Consolidated summary for a group of chapters (FR-13)."""
+
+    start_chapter_index: int = Field(description="Zero-based start chapter index")
+    end_chapter_index: int = Field(description="Zero-based end chapter index")
+    summary: str = Field(description="Consolidated summary for this chapter range")
+
+
 class SemanticMemory(BaseModel):
     """What do I know? The knowledge base (cumulative)."""
 
@@ -387,6 +434,10 @@ class SemanticMemory(BaseModel):
     chapter_summaries: List[ChapterSummary] = Field(
         default_factory=list,
         description="Cumulative summaries for all processed chapters",
+    )
+    book_summaries: List[BookSummary] = Field(
+        default_factory=list,
+        description="Consolidated summaries of chapter groups",
     )
 
 
