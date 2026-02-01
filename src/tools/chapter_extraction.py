@@ -53,12 +53,16 @@ class ChapterExtractionTool:
         start_line = chapter_meta.start_line
         end_line = chapter_meta.end_line
 
-        # Read only the lines for this chapter (1-indexed in metadata)
+        # Stream only the lines for this chapter (1-indexed in metadata)
+        chapter_lines = []
         with open(file_path, "r", encoding="utf-8", errors="replace") as f:
-            lines = f.readlines()
+            for line_num, line in enumerate(f, start=1):
+                if line_num < start_line:
+                    continue
+                if line_num > end_line:
+                    break
+                chapter_lines.append(line)
 
-        # Extract the chapter lines (convert from 1-indexed to 0-indexed)
-        chapter_lines = lines[start_line - 1 : end_line]
         chapter_text = "".join(chapter_lines)
 
         return ChapterExtractionResult(

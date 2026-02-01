@@ -48,9 +48,14 @@ class ChapterSegmentationRequest(BaseModel):
         default=[
             r"^CHAPTER\s+[IVXLCDM\d]+",  # Roman/Arabic numerals
             r"^PART\s+[IVXLCDM\d]+",
-            r"^BOOK\s+[IVXLCDM\d]+",
         ],
         description="Regex patterns to match chapter headers",
+    )
+    book_patterns: List[str] = Field(
+        default=[
+            r"^BOOK\s+(ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|ELEVEN|TWELVE|THIRTEEN|FOURTEEN|FIFTEEN):\s*.*$",
+        ],
+        description="Regex patterns to match book headers",
     )
     fallback_line_count: int = Field(
         default=1000,
@@ -63,18 +68,42 @@ class ChapterSegmentationMetadata(BaseModel):
 
     index: int = Field(description="Zero-based chapter index")
     title: str = Field(description="Chapter title/header text")
+    book_index: int = Field(description="Zero-based book index containing chapter")
+    book_title: str = Field(description="Book title/header text")
+    chapter_number: int = Field(
+        description="1-based chapter number within the containing book"
+    )
     start_line: int = Field(description="1-based line number where chapter starts")
     end_line: int = Field(description="1-based line number where chapter ends")
     line_count: int = Field(description="Total lines in this chapter")
 
 
+class BookSegmentationMetadata(BaseModel):
+    """Metadata for a single book and its chapters."""
+
+    index: int = Field(description="Zero-based book index")
+    title: str = Field(description="Book title/header text")
+    start_line: int = Field(description="1-based line number where book starts")
+    end_line: int = Field(description="1-based line number where book ends")
+    line_count: int = Field(description="Total lines in this book section")
+    chapters: List[ChapterSegmentationMetadata] = Field(
+        default_factory=list,
+        description="Chapters that belong to this book",
+    )
+
+
 class ChapterSegmentationResult(BaseModel):
     """Result of chapter segmentation."""
 
+    books: List[BookSegmentationMetadata] = Field(
+        default_factory=list,
+        description="List of book metadata with nested chapters",
+    )
     chapters: List[ChapterSegmentationMetadata] = Field(
         default_factory=list,
         description="List of chapter metadata",
     )
+    total_books: int = Field(description="Total number of books detected")
     total_chapters: int = Field(description="Total number of chapters detected")
     total_lines: int = Field(description="Total number of lines in the file")
     fallback_used: bool = Field(

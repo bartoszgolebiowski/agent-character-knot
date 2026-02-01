@@ -42,10 +42,22 @@ No characters to score.
 ## Relationship Summary
 
 {% if relationships %}
-Total Relationships: {{ relationships | length }}
+{% set rel_count = namespace(value=0) %}
+{% for char_id, rels in relationships.items() %}
+	{% for other_id, rel_history in rels.items() %}
+		{% if char_id < other_id %}
+			{% set rel_count.value = rel_count.value + 1 %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+Total Relationships: {{ rel_count.value }}
 
-{% for rel_key, rel_history in relationships.items() %}
-- {{ rel_history.character_a_id }} ↔ {{ rel_history.character_b_id }}: {{ rel_history.interactions | length }} interactions
+{% for char_id, rels in relationships.items() %}
+{% for other_id, rel_history in rels.items() %}
+{% if char_id < other_id %}
+- {{ char_id }} ↔ {{ other_id }}: {{ rel_history.interactions | length }} interactions
+{% endif %}
+{% endfor %}
 {% endfor %}
 {% else %}
 No relationships recorded.

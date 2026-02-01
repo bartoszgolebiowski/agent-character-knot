@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from .decision import CoordinatorDecision
 from .types import ActionType, WorkflowStage
 from .workflow_transitions import TRANSITIONS
-from ..memory.models import AgentState
 from ..skills.base import SkillName
 from ..tools.models import ToolName
+
+if TYPE_CHECKING:
+    from ..memory.models import AgentState
 
 
 class AgentActionCoordinator:

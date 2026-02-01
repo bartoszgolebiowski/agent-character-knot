@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from src.engine.decision import ActionType
 from src.engine.types import WorkflowStage
 from src.memory.models import AgentState
-from src.memory.state_manager import update_state_from_tool
+from src.memory.state_manager import advance_to_next_chapter, update_state_from_tool
 from src.skills.base import SkillName
 from src.tools.chapter_extraction import ChapterExtractionTool
 from src.tools.chapter_segmentation import ChapterSegmentationTool
@@ -54,7 +54,12 @@ class AgentResult:
     def summary(self) -> str:
         """Generate a human-readable summary of the agent run."""
         char_count = len(self.state.semantic.characters)
-        rel_count = len(self.state.semantic.relationships)
+        rel_pairs: set[tuple[str, str]] = set()
+        for char_id, rels in self.state.semantic.relationships.items():
+            for other_id in rels.keys():
+                if char_id < other_id:
+                    rel_pairs.add((char_id, other_id))
+        rel_count = len(rel_pairs)
         event_count = len(self.state.semantic.event_chronicle)
         chapters = self.state.working.total_chapters
 
@@ -170,28 +175,8 @@ class Agent:
                 break
 
             if decision.action_type == ActionType.NOOP:
-                # Handle special NOOP for CHECK_COMPLETION
-                if state.workflow.current_stage == WorkflowStage.CHECK_COMPLETION:
-                    # Advance chapter index and get next decision
-                    current_idx = state.working.current_chapter_index
-                    total = state.working.total_chapters
-
-                    if current_idx < total - 1:
-                        state.working.current_chapter_index = current_idx + 1
-                        state.workflow.record_transition(
-                            to_stage=WorkflowStage.LOAD_CHAPTER,
-                            reason=f"Proceeding to chapter {current_idx + 2}",
-                        )
-                        continue
-                    else:
-                        state.workflow.record_transition(
-                            to_stage=WorkflowStage.IMPORTANCE_SCORING,
-                            reason="All chapters processed",
-                        )
-                        continue
-                else:
-                    self._logger.warning(f"NOOP: {decision.reason}")
-                    break
+                self._logger.warning(f"NOOP: {decision.reason}")
+                break
 
             if decision.action_type == ActionType.LLM_SKILL and decision.skill:
                 self._logger.debug(f"Invoking LLM skill: {decision.skill.value}")
@@ -203,6 +188,13 @@ class Agent:
 
             if decision.action_type == ActionType.TOOL and decision.tool_type:
                 self._logger.debug(f"Executing tool: {decision.tool_type.value}")
+
+                if (
+                    state.workflow.current_stage == WorkflowStage.CHECK_COMPLETION
+                    and decision.tool_type == ToolName.CHAPTER_EXTRACTION
+                ):
+                    state = advance_to_next_chapter(state)
+
                 output = self._execute_tool(state, decision.tool_type)
                 self._logger.debug(f"Tool execution complete")
                 state = update_state_from_tool(state, decision.tool_type, output)

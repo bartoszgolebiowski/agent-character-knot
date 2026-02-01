@@ -22,6 +22,7 @@ class RelationshipEvidence(BaseModel):
 
     quote: str = Field(
         description="Verbatim quote from the text (1-3 sentences)",
+        min_length=10,
     )
     chapter_index: int = Field(
         ge=0,
@@ -44,12 +45,15 @@ class RelationshipInteraction(BaseModel):
 
     relation_type: str = Field(
         description="Nature of relationship (free-form, e.g., 'Secret Alliance')",
+        min_length=3,
     )
     reasoning: str = Field(
         description="WHY this relationship exists - logical explanation",
+        min_length=10,
     )
     context: str = Field(
         description="Brief situation/circumstances of the interaction",
+        min_length=10,
     )
     evidence: RelationshipEvidence = Field(
         description="Textual proof with chapter reference",
@@ -123,7 +127,7 @@ class CharacterProfile(BaseModel):
         description="Brief description of the character",
     )
     importance_score: float = Field(
-        default=0.5,
+        default=0.0,
         ge=0.0,
         le=1.0,
         description="Importance score from 0.0 (background) to 1.0 (protagonist)",
@@ -187,9 +191,28 @@ class ChapterMetadata(BaseModel):
 
     index: int = Field(description="Zero-based chapter index")
     title: str = Field(description="Chapter title/header text")
+    book_index: int = Field(description="Zero-based book index containing chapter")
+    book_title: str = Field(description="Book title/header text")
+    chapter_number: int = Field(
+        description="1-based chapter number within the containing book"
+    )
     start_line: int = Field(description="1-based line number where chapter starts")
     end_line: int = Field(description="1-based line number where chapter ends")
     line_count: int = Field(description="Total lines in this chapter")
+
+
+class BookMetadata(BaseModel):
+    """Metadata for a single book containing chapters."""
+
+    index: int = Field(description="Zero-based book index")
+    title: str = Field(description="Book title/header text")
+    start_line: int = Field(description="1-based line number where book starts")
+    end_line: int = Field(description="1-based line number where book ends")
+    line_count: int = Field(description="Total lines in this book section")
+    chapters: List[ChapterMetadata] = Field(
+        default_factory=list,
+        description="Chapters that belong to this book",
+    )
 
 
 class ChapterSummary(BaseModel):
@@ -243,6 +266,10 @@ class WorkingMemory(BaseModel):
         default=0,
         description="Total number of chapters in the book",
     )
+    total_books: int = Field(
+        default=0,
+        description="Total number of books in the text",
+    )
     current_chapter_text: str = Field(
         default="",
         description="Text content of the current chapter",
@@ -264,6 +291,10 @@ class WorkingMemory(BaseModel):
     chapter_map: List[ChapterMetadata] = Field(
         default_factory=list,
         description="List of all chapter boundaries",
+    )
+    book_map: List[BookMetadata] = Field(
+        default_factory=list,
+        description="List of all books with nested chapters",
     )
 
 
@@ -338,10 +369,10 @@ class SemanticMemory(BaseModel):
     )
 
     # FR-06: Relationship Graph with Full Attribution
-    # Key format: "{char_a_id}::{char_b_id}" (sorted alphabetically)
-    relationships: Dict[str, RelationshipHistory] = Field(
+    # Nested map: character_id -> {other_character_id -> RelationshipHistory}
+    relationships: Dict[str, Dict[str, RelationshipHistory]] = Field(
         default_factory=dict,
-        description="Relationship pair key -> RelationshipHistory",
+        description="Nested relationship map by character",
     )
 
     # FR-07: Event Chronicle for Long-term Reasoning
@@ -352,6 +383,10 @@ class SemanticMemory(BaseModel):
     causal_links: List[CausalLink] = Field(
         default_factory=list,
         description="Cause-and-effect links between events",
+    )
+    chapter_summaries: List[ChapterSummary] = Field(
+        default_factory=list,
+        description="Cumulative summaries for all processed chapters",
     )
 
 

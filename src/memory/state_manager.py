@@ -23,6 +23,7 @@ from src.tools.models import (
 
 from .models import (
     AgentState,
+    BookMetadata,
     CausalLink,
     CharacterProfile,
     ChapterMetadata,
@@ -187,14 +188,35 @@ def skill_analyze_chapter_handler(
         if not char_a_id or not char_b_id:
             continue  # Skip if we can't resolve both characters
 
-        # Get or create relationship history
-        rel_key = new_state.get_relationship_key(char_a_id, char_b_id)
-
-        if rel_key not in new_state.semantic.relationships:
-            new_state.semantic.relationships[rel_key] = RelationshipHistory(
-                character_a_id=min(char_a_id, char_b_id),
-                character_b_id=max(char_a_id, char_b_id),
+        # Get or create relationship history (bidirectional)
+        if char_a_id not in new_state.semantic.relationships:
+            new_state.semantic.relationships[char_a_id] = {}
+        if char_b_id not in new_state.semantic.relationships[char_a_id]:
+            new_state.semantic.relationships[char_a_id][char_b_id] = (
+                RelationshipHistory(
+                    character_a_id=char_a_id,
+                    character_b_id=char_b_id,
+                )
             )
+
+        if char_b_id not in new_state.semantic.relationships:
+            new_state.semantic.relationships[char_b_id] = {}
+        if char_a_id not in new_state.semantic.relationships[char_b_id]:
+            new_state.semantic.relationships[char_b_id][char_a_id] = (
+                RelationshipHistory(
+                    character_a_id=char_b_id,
+                    character_b_id=char_a_id,
+                )
+            )
+
+        referenced_event_id: Optional[str] = None
+        if interaction_out.references_past_event:
+            referenced_event = _find_event_by_description(
+                new_state.semantic.event_chronicle,
+                interaction_out.references_past_event,
+            )
+            if referenced_event:
+                referenced_event_id = referenced_event.event_id
 
         # Create interaction record
         interaction = RelationshipInteraction(
@@ -208,10 +230,15 @@ def skill_analyze_chapter_handler(
                 chapter_index=chapter_index,
                 chapter_title=chapter_title,
             ),
-            references_event_id=None,  # Will be updated if causal link detected
+            references_event_id=referenced_event_id,
         )
 
-        new_state.semantic.relationships[rel_key].interactions.append(interaction)
+        new_state.semantic.relationships[char_a_id][char_b_id].interactions.append(
+            interaction
+        )
+        new_state.semantic.relationships[char_b_id][char_a_id].interactions.append(
+            interaction
+        )
         relationships_added += 1
 
     # -------------------------------------------------------------------------
@@ -276,6 +303,7 @@ def skill_analyze_chapter_handler(
         events_count=events_added,
         relationships_count=relationships_added,
     )
+    new_state.semantic.chapter_summaries.append(chapter_summary)
     new_state.episodic.chapter_summaries.append(chapter_summary)
 
     # Update rolling window
@@ -287,6 +315,8 @@ def skill_analyze_chapter_handler(
             > new_state.episodic.window_size
         ):
             new_state.episodic.recent_chapter_indices.pop(0)
+    while len(new_state.episodic.chapter_summaries) > new_state.episodic.window_size:
+        new_state.episodic.chapter_summaries.pop(0)
 
     # -------------------------------------------------------------------------
     # 5. Update Resource Counters
@@ -322,6 +352,22 @@ def skill_importance_scoring_handler(
     new_state.workflow.record_transition(
         to_stage=WorkflowStage.GENERATE_REPORT,
         reason="Importance scoring completed",
+    )
+
+    return new_state
+
+
+def advance_to_next_chapter(state: AgentState) -> AgentState:
+    """Advance to the next chapter without mutating state in place (FR-03, FR-08)."""
+    new_state = deepcopy(state)
+
+    new_state.working.current_chapter_index += 1
+    new_state.working.current_chapter_text = ""
+    new_state.working.current_chapter_title = ""
+
+    new_state.workflow.record_transition(
+        to_stage=WorkflowStage.LOAD_CHAPTER,
+        reason=f"Proceeding to chapter {new_state.working.current_chapter_index + 1}",
     )
 
     return new_state
@@ -365,14 +411,45 @@ def tool_chapter_segmentation_handler(
             ChapterMetadata(
                 index=ch.index,
                 title=ch.title,
+                book_index=ch.book_index,
+                book_title=ch.book_title,
+                chapter_number=ch.chapter_number,
                 start_line=ch.start_line,
                 end_line=ch.end_line,
                 line_count=ch.line_count,
             )
         )
 
+    book_map: List[BookMetadata] = []
+    for book in output.books:
+        book_chapters: List[ChapterMetadata] = [
+            ChapterMetadata(
+                index=ch.index,
+                title=ch.title,
+                book_index=ch.book_index,
+                book_title=ch.book_title,
+                chapter_number=ch.chapter_number,
+                start_line=ch.start_line,
+                end_line=ch.end_line,
+                line_count=ch.line_count,
+            )
+            for ch in book.chapters
+        ]
+        book_map.append(
+            BookMetadata(
+                index=book.index,
+                title=book.title,
+                start_line=book.start_line,
+                end_line=book.end_line,
+                line_count=book.line_count,
+                chapters=book_chapters,
+            )
+        )
+
     new_state.working.chapter_map = chapter_map
     new_state.working.total_chapters = output.total_chapters
+    new_state.working.total_books = output.total_books
+    new_state.working.book_map = book_map
     new_state.working.current_chapter_index = 0
 
     new_state.workflow.record_transition(

@@ -18,11 +18,9 @@ class LLMConfig:
     def from_env(cls) -> "LLMConfig":
         """Build a config object using standard environment variables."""
 
-        api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+        api_key = os.getenv("OPENROUTER_API_KEY")
         if not api_key:
-            raise ValueError(
-                "Missing OPENROUTER_API_KEY (or fallback OPENAI_API_KEY) for LLM client."
-            )
+            raise ValueError("Missing OPENROUTER_API_KEY for LLM client.")
 
         base_url = os.getenv("OPENROUTER_BASE_URL") or cls.base_url_default()
         model = os.getenv("OPENROUTER_MODEL", cls.model_default())
@@ -47,7 +45,7 @@ class LLMConfig:
 
     @classmethod
     def model_default(cls) -> str:
-        return "xiaomi/mimo-v2-flash:free"
+        return "arcee-ai/trinity-mini:free"
 
     @classmethod
     def temperature_default(cls) -> float:
@@ -55,4 +53,4 @@ class LLMConfig:
 
     @classmethod
     def max_output_tokens_default(cls) -> int:
-        return 1200
+        return 100000

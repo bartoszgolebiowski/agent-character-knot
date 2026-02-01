@@ -15,5 +15,8 @@ dependencies = [
     "openai>=1.13.3",
 ]
 
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
 [tool.setuptools.packages.find]
 where = ["."]

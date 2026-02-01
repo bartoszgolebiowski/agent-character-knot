@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Pattern
 
 from .models import (
+    BookSegmentationMetadata,
     ChapterSegmentationMetadata,
     ChapterSegmentationRequest,
     ChapterSegmentationResult,
@@ -46,14 +47,23 @@ class ChapterSegmentationTool:
             re.compile(pattern, re.IGNORECASE | re.MULTILINE)
             for pattern in request.patterns
         ]
+        compiled_book_patterns: List[Pattern[str]] = [
+            re.compile(pattern, re.MULTILINE) for pattern in request.book_patterns
+        ]
 
         # Find all chapter boundaries
         chapter_starts: List[tuple[int, str]] = []  # (line_number, title)
+        book_starts: List[tuple[int, str]] = []  # (line_number, title)
 
         for line_num, line in enumerate(lines, start=1):
             stripped = line.strip()
             if not stripped:
                 continue
+
+            for pattern in compiled_book_patterns:
+                if pattern.match(stripped):
+                    book_starts.append((line_num, stripped))
+                    break
 
             for pattern in compiled_patterns:
                 if pattern.match(stripped):
@@ -69,30 +79,73 @@ class ChapterSegmentationTool:
                 fallback_line_count=request.fallback_line_count,
             )
 
-        # Build chapter metadata with boundaries
+        # Determine book boundaries (use a single synthetic book if none detected)
+        if not book_starts:
+            book_starts = [(1, "BOOK 1")]
+        else:
+            latest_by_title: dict[str, int] = {}
+            for line_num, title in book_starts:
+                latest_by_title[title] = line_num
+            book_starts = sorted(
+                [(line_num, title) for title, line_num in latest_by_title.items()],
+                key=lambda item: item[0],
+            )
+
+        books: List[BookSegmentationMetadata] = []
         chapters: List[ChapterSegmentationMetadata] = []
 
-        for idx, (start_line, title) in enumerate(chapter_starts):
-            # End line is the line before the next chapter starts, or EOF
-            if idx + 1 < len(chapter_starts):
-                end_line = chapter_starts[idx + 1][0] - 1
+        global_index = 0
+        for book_idx, (book_start, book_title) in enumerate(book_starts):
+            if book_idx + 1 < len(book_starts):
+                book_end = book_starts[book_idx + 1][0] - 1
             else:
-                end_line = total_lines
+                book_end = total_lines
 
-            line_count = end_line - start_line + 1
+            book_chapter_starts = [
+                (line_num, title)
+                for line_num, title in chapter_starts
+                if book_start <= line_num <= book_end
+            ]
 
-            chapters.append(
-                ChapterSegmentationMetadata(
-                    index=idx,
+            book_chapters: List[ChapterSegmentationMetadata] = []
+            for chapter_idx, (start_line, title) in enumerate(book_chapter_starts):
+                if chapter_idx + 1 < len(book_chapter_starts):
+                    end_line = book_chapter_starts[chapter_idx + 1][0] - 1
+                else:
+                    end_line = book_end
+
+                line_count = end_line - start_line + 1
+                chapter_number = chapter_idx + 1
+
+                chapter_meta = ChapterSegmentationMetadata(
+                    index=global_index,
                     title=title,
+                    book_index=book_idx,
+                    book_title=book_title,
+                    chapter_number=chapter_number,
                     start_line=start_line,
                     end_line=end_line,
                     line_count=line_count,
                 )
+                book_chapters.append(chapter_meta)
+                chapters.append(chapter_meta)
+                global_index += 1
+
+            books.append(
+                BookSegmentationMetadata(
+                    index=book_idx,
+                    title=book_title,
+                    start_line=book_start,
+                    end_line=book_end,
+                    line_count=book_end - book_start + 1,
+                    chapters=book_chapters,
+                )
             )
 
         return ChapterSegmentationResult(
+            books=books,
             chapters=chapters,
+            total_books=len(books),
             total_chapters=len(chapters),
             total_lines=total_lines,
             fallback_used=False,
@@ -111,6 +164,7 @@ class ChapterSegmentationTool:
         chapters: List[ChapterSegmentationMetadata] = []
         current_line = 1
         chapter_idx = 0
+        book_title = "BOOK 1"
 
         while current_line <= total_lines:
             end_line = min(current_line + fallback_line_count - 1, total_lines)
@@ -120,6 +174,9 @@ class ChapterSegmentationTool:
                 ChapterSegmentationMetadata(
                     index=chapter_idx,
                     title=f"Section {chapter_idx + 1}",
+                    book_index=0,
+                    book_title=book_title,
+                    chapter_number=chapter_idx + 1,
                     start_line=current_line,
                     end_line=end_line,
                     line_count=line_count,
@@ -129,8 +186,21 @@ class ChapterSegmentationTool:
             current_line = end_line + 1
             chapter_idx += 1
 
+        books = [
+            BookSegmentationMetadata(
+                index=0,
+                title=book_title,
+                start_line=1,
+                end_line=total_lines,
+                line_count=total_lines,
+                chapters=chapters,
+            )
+        ]
+
         return ChapterSegmentationResult(
+            books=books,
             chapters=chapters,
+            total_books=len(books),
             total_chapters=len(chapters),
             total_lines=total_lines,
             fallback_used=True,

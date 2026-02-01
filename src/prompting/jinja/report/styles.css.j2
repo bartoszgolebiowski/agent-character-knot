@@ -1,0 +1,165 @@
+/* StoryGraph Report Stylesheet */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+header .subtitle {
+    opacity: 0.8;
+    font-style: italic;
+}
+
+nav {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+    background-color: var(--background-color);
+    font-weight: bold;
+}
+
+.importance-score {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.aliases {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+.interaction {
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.interaction-type {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.quote {
+    background-color: var(--background-color);
+    padding: 10px;
+    margin-top: 10px;
+    border-left: 4px solid var(--secondary-color);
+    font-style: italic;
+}
+
+.attribution {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.event-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.significance-major {
+    border-left: 4px solid var(--accent-color);
+}
+
+.significance-moderate {
+    border-left: 4px solid var(--secondary-color);
+}
+
+.significance-minor {
+    border-left: 4px solid var(--border-color);
+}
+
+a {
+    color: var(--secondary-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
