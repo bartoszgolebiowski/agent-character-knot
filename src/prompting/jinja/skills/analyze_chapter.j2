@@ -1,0 +1,79 @@
+{% include "memory/core.j2" %}
+
+# Chapter Analysis Task
+
+You are analyzing a chapter from a literary work to extract characters, relationships, and significant events.
+
+## Current Chapter Information
+
+**Chapter {{ current_chapter_index + 1 }}**: {{ current_chapter_title }}
+
+## Chapter Text
+
+<chapter_text>
+{{ current_chapter_text }}
+</chapter_text>
+
+{% if characters %}
+## Known Characters (from previous chapters)
+
+{% for char_id, profile in characters.items() %}
+- **{{ profile.canonical_name }}** (ID: {{ char_id }})
+  - Aliases: {{ profile.aliases | join(', ') if profile.aliases else 'None' }}
+  - First appeared: Chapter {{ profile.first_appearance_chapter + 1 }}
+{% endfor %}
+{% else %}
+## Known Characters
+
+No characters discovered yet. This may be the first chapter.
+{% endif %}
+
+{% if events %}
+## Previous Significant Events (for long-term reasoning)
+
+{% for event in events[-10:] %}
+- **Chapter {{ event.chapter_index + 1 }}**: {{ event.description }}
+{% endfor %}
+{% endif %}
+
+## Your Task
+
+Analyze the chapter text above and extract:
+
+### 1. Entity Resolution (Characters)
+- Identify all named characters mentioned in this chapter
+- For each character, determine if they are:
+  - A new character (not in the known characters list)
+  - An existing character (match by name or alias)
+  - An alias/reference to an existing character
+
+### 2. Relationship Extraction
+- Identify all significant relationships or interactions between characters
+- For each relationship, provide:
+  - The nature of the relationship (e.g., "Allies", "Enemies", "Family", "Romantic")
+  - The reasoning explaining WHY this relationship exists
+  - The context/circumstances of the interaction
+  - A direct quote from the text as evidence
+
+### 3. Event Extraction
+- Identify major plot events that happen in this chapter
+- Focus on events that:
+  - Affect character relationships
+  - Are referenced later in the story
+  - Change the narrative direction
+- For each event, note which characters are involved
+
+### 4. Causal Links (Long-term Reasoning)
+- If any current events reference or are caused by past events (from the list above), note the connection
+- Explain the cause-and-effect relationship
+
+## Important Guidelines
+
+- Only extract real named characters, not generic mentions like "the crowd" or "soldiers"
+- Quotes must be VERBATIM from the text - do not paraphrase
+- Relationship types should be specific (e.g., "Secret Alliance" not just "Positive")
+- Focus on quality over quantity - extract meaningful information only
+
+## Output Format
+
+Provide your analysis as structured JSON following the ChapterAnalysisOutput schema.

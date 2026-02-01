@@ -15,6 +15,12 @@ class SkillName(str, Enum):
     HELLO_WORLD = "hello_world"
     ANALYZE_AND_PLAN = "analyze_and_plan"
 
+    # FR-04, FR-06, FR-07: Combined chapter analysis skill
+    ANALYZE_CHAPTER = "analyze_chapter"
+
+    # FR-05: Importance scoring (batch, runs after all chapters)
+    IMPORTANCE_SCORING = "importance_scoring"
+
 
 @dataclass(frozen=True, slots=True)
 class SkillDefinition:

@@ -1,0 +1,7 @@
+# Current Session Context (Working Memory)
+
+**Book**: {{ working.book_title }}
+**Progress**: Chapter {{ working.current_chapter_index + 1 }} of {{ working.total_chapters }}
+{% if working.current_chapter_title %}
+**Current Chapter**: {{ working.current_chapter_title }}
+{% endif %}

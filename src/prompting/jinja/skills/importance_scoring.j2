@@ -1,0 +1,75 @@
+{% include "memory/core.j2" %}
+
+# Character Importance Scoring Task
+
+You are assessing the narrative importance of all characters discovered in a literary work.
+Your scores will be used to rank characters in the final report.
+
+## Scoring Guidelines
+
+Score each character from 0.0 to 1.0 based on:
+
+| Score Range | Character Type | Examples |
+|-------------|----------------|----------|
+| 0.9 - 1.0 | Protagonist / Main Character | The hero, central viewpoint character |
+| 0.7 - 0.8 | Major Supporting Character | Key allies, main antagonist |
+| 0.5 - 0.6 | Important Secondary Character | Recurring characters with plot significance |
+| 0.3 - 0.4 | Minor Named Character | Characters who appear multiple times |
+| 0.1 - 0.2 | Background Character | Named but barely involved in plot |
+
+## Factors to Consider
+
+1. **Screen Time**: How often does the character appear?
+2. **Plot Impact**: Do their actions drive the story forward?
+3. **Relationship Centrality**: How connected are they to other characters?
+4. **Character Arc**: Do they undergo meaningful change?
+5. **Reader Attachment**: Would readers care if they disappeared?
+
+## Character Registry
+
+{% if characters %}
+{% for char_id, profile in characters.items() %}
+### {{ profile.canonical_name }}
+- **ID**: {{ char_id }}
+- **Aliases**: {{ profile.aliases | join(', ') if profile.aliases else 'None' }}
+- **First Appearance**: Chapter {{ profile.first_appearance_chapter + 1 }}
+- **Description**: {{ profile.description or 'No description available' }}
+{% endfor %}
+{% else %}
+No characters to score.
+{% endif %}
+
+## Relationship Summary
+
+{% if relationships %}
+Total Relationships: {{ relationships | length }}
+
+{% for rel_key, rel_history in relationships.items() %}
+- {{ rel_history.character_a_id }} ↔ {{ rel_history.character_b_id }}: {{ rel_history.interactions | length }} interactions
+{% endfor %}
+{% else %}
+No relationships recorded.
+{% endif %}
+
+## Event Chronicle Summary
+
+{% if events %}
+Total Significant Events: {{ events | length }}
+
+Events by significance:
+- Major: {{ events | selectattr('significance', 'equalto', 'major') | list | length }}
+- Moderate: {{ events | selectattr('significance', 'equalto', 'moderate') | list | length }}
+- Minor: {{ events | selectattr('significance', 'equalto', 'minor') | list | length }}
+{% else %}
+No significant events recorded.
+{% endif %}
+
+## Your Task
+
+Assign an importance score to EVERY character in the registry.
+Provide brief reasoning for each score explaining your assessment.
+
+## Output Format
+
+Provide your scoring as structured JSON following the ImportanceScoringOutput schema.
+Each entry should include the character_id, character_name, score (0.0-1.0), and reasoning.

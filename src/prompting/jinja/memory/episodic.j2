@@ -1,0 +1,15 @@
+# Recent History (Episodic Memory)
+
+{% if episodic.chapter_summaries %}
+## Recently Processed Chapters
+
+{% for summary in episodic.chapter_summaries[-5:] %}
+### Chapter {{ summary.index + 1 }}: {{ summary.title }}
+{{ summary.summary or 'No summary available' }}
+- Characters introduced: {{ summary.characters_introduced | length }}
+- Events: {{ summary.events_count }}
+- Relationships: {{ summary.relationships_count }}
+{% endfor %}
+{% else %}
+No chapters processed yet.
+{% endif %}
