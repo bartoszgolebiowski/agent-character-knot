@@ -1,0 +1,16 @@
+# Workflow Memory
+
+**Current Stage**: {{ workflow.current_stage }}
+**Goal**: {{ workflow.goal }}
+
+{% if workflow.history %}
+## State Transition History
+The following transitions have occurred in this process:
+{% for transition in workflow.history %}
+- **{{ transition.from_stage }}** → **{{ transition.to_stage }}**
+  - *Time*: {{ transition.timestamp }}
+  {% if transition.reason %}
+  - *Reason*: {{ transition.reason }}
+  {% endif %}
+{% endfor %}
+{% endif %}

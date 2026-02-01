@@ -1,0 +1,25 @@
+{% include "memory/core.j2" %}
+{% include "memory/working.j2" %}
+{% include "memory/workflow.j2" %}
+{% include "memory/episodic.j2" %}
+{% include "memory/semantic.j2" %}
+{% include "memory/procedural.j2" %}
+{% include "memory/resource.j2" %}
+
+# Analyze and Plan Skill
+
+Use the provided memory, especially the **State Transition History** in Workflow Memory, to understand your progress so far and decide on the next logical stage.
+
+## Instructions
+1. Review the current goal and the history of transitions already performed.
+2. Analyze the context of the current session in Working Memory.
+3. Select the next recommended stage to proceed to.
+
+State Machine Flow:
+```mermaid
+stateDiagram-v2
+    [*] --> INITIAL
+    INITIAL --> COORDINATOR : ANALYZE_AND_PLAN
+    COORDINATOR --> COMPLETED : Recommended Stage
+    COMPLETED --> [*]
+```
