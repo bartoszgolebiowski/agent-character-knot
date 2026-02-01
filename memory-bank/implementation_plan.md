@@ -54,6 +54,20 @@ _Deterministic tools for final output._
     - Create templates for Index, Character, and Chapter pages.
     - Implement automatic link generation filters.
 
+## Phase 5: Advanced Scaling (Long-tail Consistency)
+
+_Strategies to handle 100+ chapters._
+
+11. **[FR-12] Character-Centric Semantic Dossiers**
+    - Refine `CharacterProfile` in `src/memory/models.py`.
+    - Implement the incremental dossier refinement skill and handler.
+12. **[FR-13] Hierarchical Memory Consolidation**
+    - Implement the consolidation trigger in `coordinator.py`.
+    - Create the `consolidate_memory.j2` skill for chapter-to-book summarization.
+13. **[FR-14] Causal Relationship Indexing**
+    - Add `is_causal_node` flag to `RelationshipInteraction`.
+    - Update `_build_prompt_context` in `src/agent.py` to include active causal nodes in the context window.
+
 ---
 
 ## Critical Rules for Implementation

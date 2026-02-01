@@ -60,7 +60,13 @@ An automated system that "reads" the book chapter by chapter, builds a persisten
 
 - **FR-07 Long-term Reasoning:** The system must link an event in the current chapter to events from the distant past (e.g., "Character X is taking revenge now for a wrong committed in Chapter 3").
 
-### 4.3 State Management
+### 4.3 Advanced Scaling & Memory (Extended for 100+ Chapters)
+
+- **FR-12 Character-Centric Semantic Dossiers:** The system must maintain refined, non-linear character profiles (Dossiers) that accumulate traits, goals, and evolution summaries. This allows the agent to reason about a character's state at Chapter 101 based on their cumulative development rather than raw history logs.
+- **FR-13 Hierarchical Memory Consolidation:** To maintain context over 100+ chapters, the system must periodically consolidate chronological chapter summaries into compressed "Book/Part Summaries."
+- **FR-14 Causal Relationship Indexing:** The system must identify and track "Active Causal Nodes" (pivotal interactions like betrothals or betrayals) that persist in the active context as long as they remain narratively relevant, ensuring long-tail relationship consistency.
+
+### 4.4 State Management
 
 - **FR-08 Incremental Updates:** The knowledge graph must be updated after every chapter.
   - **Episodic Memory:** Stores raw events and extractions from the current chapter.
